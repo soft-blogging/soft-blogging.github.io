@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8"> <!-- begin _includes/seo.html --><title>XMRig: Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)</title>
+<meta name="description" content="XMRig: Настройка команд для максимальной прибыли, Config для NiceHash. В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.">
+<meta name="author" content="Matthew Wood">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru">
+<meta property="og:site_name" content="MiningSoft">
+<meta property="og:title" content="XMRig: Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)">
+<meta property="og:url" content="https://cryptosoft.download/ru/miners/xmrig/ ">
+<meta property="og:description" content="XMRig: Настройка команд для максимальной прибыли, Config для NiceHash. В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.">
+<meta property="og:image" content="https://cryptosoft.download/assets/images/site-logo.png">
+<meta name="twitter:site" content="@mza">
+<meta name="twitter:title" content="XMRig: Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)">
+<meta name="twitter:description" content="XMRig: Настройка команд для максимальной прибыли, Config для NiceHash. В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.">
+<meta name="twitter:url" content="https://cryptosoft.download/ru/miners/xmrig/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cryptosoft.download/assets/images/site-logo.png">
+<meta property="article:published_time" content="2021-08-14T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-11-29T00:00:00+00:00">
+<link rel="canonical" href="https://cryptosoft.download/ru/miners/xmrig/"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "headline": "XMRig&#58; Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)", "image": "", "author": { "@type": "Person", "name": "Matthew Wood", "url": "https://cryptosoft.download/ru/about", "sameAs": "https://www.facebook.com/ltcbtc" }, "publisher": { "@type": "Organization", "name": "MiningSoft", "logo": { "@type": "ImageObject", "url": "https://cryptosoft.download/assets/images/logo2.png" } }, "dateModified": "2021-11-29T00:00:00+00:00" } </script><meta name="google-site-verification" content="lzkzzEBSl4ZcrOj5sxD0Ao0R1sXdFSczY9bQcLVWHMY">
+<meta name="yandex-verification" content="da0cda22b6e4f5d0"> <!-- end _includes/seo.html --><meta name="description" content="XMRig: Настройка команд для максимальной прибыли, Config для NiceHash. В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.">
+<meta name="author" content="Matthew Wood">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="MiningSoft Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script> <!-- For all browsers --><link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/css/fontawesome/all.min.css" as="style" onload="this.rel='stylesheet'">
+<style type="text/css"> button:focus,a:focus{outline:thin dotted #6f777d;outline:5px auto #6f777d;outline-offset:-2px}*{box-sizing:border-box}html{box-sizing:border-box;background-color:#fff;font-size:16px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}@media (min-width: 48em){html{font-size:18px}}@media (min-width: 64em){html{font-size:20px}}@media (min-width: 80em){html{font-size:22px}}body{margin:0}::-moz-selection{color:#fff;background:#000}::selection{color:#fff;background:#000}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none}a{color:#2f7d95}a:hover,a:active{outline:0}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{max-width:100%;width:auto\9;height:auto;vertical-align:middle;border:0;-ms-interpolation-mode:bicubic}#map_canvas img,.google-maps img{max-width:none}button,input,select,textarea{margin:0;font-size:100%;vertical-align:middle}button,input{*overflow:visible;line-height:normal}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}label,select,button,input[type="button"],input[type="reset"],input[type="submit"],input[type="radio"],input[type="checkbox"]{cursor:pointer}input[type="search"]{box-sizing:border-box;-webkit-appearance:textfield}input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none}textarea{overflow:auto;vertical-align:top}html{position:relative;min-height:100%}body{margin:0;padding:0;color:#3d4144;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;line-height:1.5}body.overflow--hidden{overflow:hidden}h1,h2,h3,h4,h5,h6{margin:2em 0 0.5em;line-height:1.2;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-weight:bold}h1{margin-top:0;font-size:1.563em}h2{font-size:1.25em}h3{font-size:1.125em}h4{font-size:1.0625em}h5{font-size:1.03125em}h6{font-size:1em}small,.small{font-size:.75em}p{margin-bottom:1.3em}u,ins{text-decoration:none;border-bottom:1px solid #3d4144}u a,ins a{color:inherit}del a{color:inherit}p,pre,blockquote,ul,ol,dl,figure,table,fieldset{orphans:3;widows:3}abbr[title],abbr[data-original-title]{text-decoration:none;cursor:help;border-bottom:1px dotted #3d4144}blockquote{margin:2em 1em 2em 0;padding-left:1em;padding-right:1em;font-style:italic;border-left:0.25em solid #6f777d}blockquote cite{font-style:italic}blockquote cite:before{content:"\2014";padding-right:5px}a:visited{color:#4e91a5}a:hover{color:#235e70;outline:0}tt,code,kbd,samp,pre{font-family:Monaco,Consolas,"Lucida Console",monospace}pre{overflow-x:auto}p>code,a>code,li>code,figcaption>code,td>code{padding-top:0.1rem;padding-bottom:0.1rem;font-size:0.8em;background:#fafafa;border-radius:4px}p>code:before,p>code:after,a>code:before,a>code:after,li>code:before,li>code:after,figcaption>code:before,figcaption>code:after,td>code:before,td>code:after{letter-spacing:-0.2em;content:"\00a0"}hr{display:block;margin:1em 0;border:0;border-top:1px solid #f2f3f3}ul li,ol li{margin-bottom:0.5em}li ul,li ol{margin-top:0.5em}figure{display:-webkit-box;display:flex;-webkit-box-pack:justify;justify-content:space-between;-webkit-box-align:start;align-items:flex-start;flex-wrap:wrap;margin:2em 0}figure img,figure iframe,figure .fluid-width-video-wrapper{margin-bottom:1em}figure img{width:100%;border-radius:4px;-webkit-transition:none;transition:none}figure>a{display:block}@media (min-width: 37.5em){figure.half>a,figure.half>img{width:calc(50% - 0.5em)}}figure.half figcaption{width:100%}@media (min-width: 37.5em){figure.third>a,figure.third>img{width:calc(33.3333% - 0.5em)}}figure.third figcaption{width:100%}figcaption{margin-bottom:0.5em;color:#646769;font-family:Georgia,Times,serif;font-size:.75em}figcaption a{-webkit-transition:none;transition:none}figcaption a:hover{color:#235e70}svg:not(:root){overflow:hidden}nav ul{margin:0;padding:0}nav li{list-style:none}nav a{text-decoration:none}nav ul li,nav ol li{margin-bottom:0}nav li ul,nav li ol{margin-top:0}b,i,strong,em,blockquote,p,q,span,figure,img,h1,h2,header,input,a,tr,td,form button,input[type="submit"],.btn,#goog-wm-sb,.highlight,.archive__item-teaser{-webkit-transition:none;transition:none}form{margin:0 0 5px 0;padding:1em;background-color:#f2f3f3}form fieldset{margin-bottom:5px;padding:0;border-width:0}form legend{display:block;width:100%;margin-bottom:10px;*margin-left:-7px;padding:0;color:#3d4144;border:0;white-space:normal}form p{margin-bottom:2.5px}form ul{list-style-type:none;margin:0 0 5px 0;padding:0}form br{display:none}label,input,button,select,textarea{vertical-align:baseline;*vertical-align:middle}input,button,select,textarea{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif}label{display:block;margin-bottom:0.25em;color:#3d4144;cursor:pointer}label small{font-size:.75em}label input,label textarea,label select{display:block}input,textarea,select{display:inline-block;width:100%;padding:0.25em;margin-bottom:0.5em;color:#3d4144;background-color:#fff;border:#f2f3f3;border-radius:4px;box-shadow:0 1px 1px rgba(0,0,0,0.125)}.input-mini{width:60px}.input-small{width:90px}input[type="image"],input[type="checkbox"],input[type="radio"]{width:auto;height:auto;padding:0;margin:3px 0;*margin-top:0;line-height:normal;cursor:pointer;border-radius:0;border:0 \9;box-shadow:none}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*width:13px;*height:13px}input[type="image"]{border:0}input[type="file"]{width:auto;padding:initial;line-height:initial;border:initial;background-color:transparent;background-color:initial;box-shadow:none}input[type="button"],input[type="reset"],input[type="submit"]{width:auto;height:auto;cursor:pointer;*overflow:visible}select,input[type="file"]{*margin-top:4px}select{width:auto;background-color:#fff}select[multiple],select[size]{height:auto}textarea{resize:vertical;height:auto;overflow:auto;vertical-align:top}input[type="hidden"]{display:none}.form{position:relative}.radio,.checkbox{padding-left:18px;font-weight:normal}.radio input[type="radio"],.checkbox input[type="checkbox"]{float:left;margin-left:-18px}.radio.inline,.checkbox.inline{display:inline-block;padding-top:5px;margin-bottom:0;vertical-align:middle}.radio.inline+.radio.inline,.checkbox.inline+.checkbox.inline{margin-left:10px}input[disabled],select[disabled],textarea[disabled],input[readonly],select[readonly],textarea[readonly]{opacity:0.5;cursor:not-allowed}input:focus,textarea:focus{border-color:#6f777d;outline:0;outline:thin dotted \9;box-shadow:inset 0 1px 3px rgba(61,65,68,0.06),0 0 5px rgba(111,119,125,0.7)}input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,select:focus{box-shadow:none}.help-block,.help-inline{color:#646769}.help-block{display:block;margin-bottom:1em;line-height:1em}.help-inline{display:inline-block;vertical-align:middle;padding-left:5px}.form-group{margin-bottom:5px;padding:0;border-width:0}.form-inline input,.form-inline textarea,.form-inline select{display:inline-block;margin-bottom:0}.form-inline label{display:inline-block}.form-inline .radio,.form-inline .checkbox,.form-inline .radio{padding-left:0;margin-bottom:0;vertical-align:middle}.form-inline .radio input[type="radio"],.form-inline .checkbox input[type="checkbox"]{float:left;margin-left:0;margin-right:3px}.form-search input,.form-search textarea,.form-search select{display:inline-block;margin-bottom:0}.form-search .search-query{padding-left:14px;padding-right:14px;margin-bottom:0;border-radius:14px}.form-search label{display:inline-block}.form-search .radio,.form-search .checkbox,.form-inline .radio{padding-left:0;margin-bottom:0;vertical-align:middle}.form-search .radio input[type="radio"],.form-search .checkbox input[type="checkbox"]{float:left;margin-left:0;margin-right:3px}.form--loading:before{content:""}.form--loading .form__spinner{display:block}.form:before{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,0.7);z-index:10}.form__spinner{display:none;position:absolute;top:50%;left:50%;z-index:11}#goog-fixurl ul{list-style:none;margin-left:0;padding-left:0}#goog-fixurl ul li{list-style-type:none}#goog-wm-qt{width:auto;margin-right:10px;margin-bottom:20px;padding:8px 20px;display:inline-block;font-size:.75em;background-color:#fff;color:#000;border-width:2px !important;border-style:solid !important;border-color:#f2f3f3;border-radius:4px}table{display:block;margin-bottom:1em;width:100%;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em;border-collapse:collapse;overflow-x:auto}table+table{margin-top:1em}thead{background-color:#f2f3f3;border-bottom:2px solid #b6b6b6}th{padding:0.5em;font-weight:bold;text-align:left}td{padding:0.5em;border-bottom:1px solid #b6b6b6}tr,td,th{vertical-align:middle}.btn,#goog-wm-sb{display:inline-block;margin-bottom:0.25em;padding:0.5em 1em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em;font-weight:bold;text-align:center;text-decoration:none;border-width:0;border-radius:4px;cursor:pointer}.btn .icon,#goog-wm-sb .icon{margin-right:0.5em}.btn .icon+.hidden,#goog-wm-sb .icon+.hidden{margin-left:-0.5em}.btn--primary{background-color:#6f777d;color:#fff}.btn--primary:visited{background-color:#6f777d;color:#fff}.btn--primary:hover{background-color:#595f64;color:#fff}.btn--inverse{background-color:#fff;color:#3d4144;border:1px solid #f2f3f3}.btn--inverse:visited{background-color:#fff;color:#3d4144}.btn--inverse:hover{background-color:#ccc;color:#3d4144}.btn--light-outline{background-color:rgba(0,0,0,0);color:#fff;border:1px solid #fff}.btn--light-outline:visited{background-color:rgba(0,0,0,0);color:#fff}.btn--light-outline:hover{background-color:rgba(0,0,0,0.2);color:#fff}.btn--success{background-color:#3fa63f;color:#fff}.btn--success:visited{background-color:#3fa63f;color:#fff}.btn--success:hover{background-color:#328532;color:#fff}.btn--warning{background-color:#d67f05;color:#fff}.btn--warning:visited{background-color:#d67f05;color:#fff}.btn--warning:hover{background-color:#ab6604;color:#fff}.btn--danger{background-color:#ee5f5b;color:#fff}.btn--danger:visited{background-color:#ee5f5b;color:#fff}.btn--danger:hover{background-color:#be4c49;color:#fff}.btn--info{background-color:#3b9cba;color:#fff}.btn--info:visited{background-color:#3b9cba;color:#fff}.btn--info:hover{background-color:#2f7d95;color:#fff}.btn--facebook{background-color:#3b5998;color:#fff}.btn--facebook:visited{background-color:#3b5998;color:#fff}.btn--facebook:hover{background-color:#2f477a;color:#fff}.btn--twitter{background-color:#55acee;color:#fff}.btn--twitter:visited{background-color:#55acee;color:#fff}.btn--twitter:hover{background-color:#448abe;color:#fff}.btn--linkedin{background-color:#007bb6;color:#fff}.btn--linkedin:visited{background-color:#007bb6;color:#fff}.btn--linkedin:hover{background-color:#006292;color:#fff}.btn--yandex{background-color:#d8ac00;color:#fff}.btn--yandex:visited{background-color:#d8ac00;color:#fff}.btn--yandex:hover{background-color:#ad8a00;color:#fff}.btn--block{display:block;width:100%}.btn--block+.btn--block{margin-top:0.25em}.btn--disabled{pointer-events:none;cursor:not-allowed;filter:alpha(opacity=65);box-shadow:none;opacity:0.65}.btn--x-large{font-size:1.25em}.btn--large{font-size:1em}.btn--small{font-size:.6875em}.masthead{position:relative;border-bottom:1px solid #f2f3f3;-webkit-animation:none;animation:none;-webkit-animation-delay:0.15s;animation-delay:0.15s;z-index:20}.masthead__inner-wrap{clear:both;margin-left:auto;margin-right:auto;padding:1em;max-width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif}.masthead__inner-wrap::after{clear:both;content:"";display:table}@media (min-width: 80em){.masthead__inner-wrap{max-width:1280px}}.masthead__inner-wrap nav{z-index:10}.masthead__inner-wrap a{text-decoration:none}.site-logo img{max-height:2rem}.site-title{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-item-align:center;align-self:center;font-weight:bold}.site-subtitle{display:block;font-size:.625em}.masthead__menu{float:left;margin-left:0;margin-right:0;width:100%;clear:both}.masthead__menu .site-nav{margin-left:0}@media (min-width: 37.5em){.masthead__menu .site-nav{float:right}}.masthead__menu ul{margin:0;padding:0;clear:both;list-style-type:none}.masthead__menu-item{display:block;list-style-type:none;white-space:nowrap}.masthead__menu-item--lg{padding-right:2em;font-weight:700}.breadcrumbs{clear:both;margin:0 auto;max-width:100%;padding-left:1em;padding-right:1em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;-webkit-animation:none;animation:none;-webkit-animation-delay:0.3s;animation-delay:0.3s}.breadcrumbs::after{clear:both;content:"";display:table}@media (min-width: 80em){.breadcrumbs{max-width:1280px}}.breadcrumbs ol{padding:0;list-style:none;font-size:.75em}@media (min-width: 64em){.breadcrumbs ol{float:right;width:calc(100% - 200px)}}@media (min-width: 80em){.breadcrumbs ol{width:calc(100% - 300px)}}.breadcrumbs li{display:inline}.breadcrumbs .current{font-weight:bold}.pagination{clear:both;float:left;margin-top:1em;padding-top:1em;width:100%}.pagination::after{clear:both;content:"";display:table}.pagination ul{margin:0;padding:0;list-style-type:none;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif}.pagination li{display:block;float:left;margin-left:-1px}.pagination li a{display:block;margin-bottom:0.25em;padding:0.5em 1em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:14px;font-weight:bold;line-height:1.5;text-align:center;text-decoration:none;color:#646769;border:1px solid #b6b6b6;border-radius:0}.pagination li a:hover{color:#235e70}.pagination li a.current,.pagination li a.current.disabled{color:#fff;background:#6f777d}.pagination li a.disabled{color:rgba(100,103,105,0.5);pointer-events:none;cursor:not-allowed}.pagination li:first-child{margin-left:0}.pagination li:first-child a{border-top-left-radius:4px;border-bottom-left-radius:4px}.pagination li:last-child a{border-top-right-radius:4px;border-bottom-right-radius:4px}.pagination--pager{display:block;padding:1em 2em;float:left;width:50%;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:1em;font-weight:bold;text-align:center;text-decoration:none;color:#646769;border:1px solid #b6b6b6;border-radius:4px}.pagination--pager:hover{background-color:#646769;color:#fff}.pagination--pager:first-child{border-top-right-radius:0;border-bottom-right-radius:0}.pagination--pager:last-child{margin-left:-1px;border-top-left-radius:0;border-bottom-left-radius:0}.pagination--pager.disabled{color:rgba(100,103,105,0.5);pointer-events:none;cursor:not-allowed}.page__content+.pagination,.page__meta+.pagination,.comment__date+.pagination,.page__share+.pagination,.page__comments+.pagination{margin-top:2em;padding-top:2em;border-top:1px solid #f2f3f3}.greedy-nav{position:relative;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;min-height:2em;background:#fff}.greedy-nav a{display:block;margin:0 1rem;color:#6f777d;text-decoration:none}.greedy-nav a:hover{color:#53595e}.greedy-nav a.site-logo{margin-left:0;margin-right:0.5rem}.greedy-nav a.site-title{margin-left:0}.greedy-nav__toggle{-ms-flex-item-align:center;align-self:center;height:2rem;border:0;outline:none;background-color:transparent;cursor:pointer}.greedy-nav .visible-links{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;-webkit-box-flex:1;-ms-flex:1;flex:1;overflow:hidden}.greedy-nav .visible-links li{-webkit-box-flex:0;-ms-flex:none;flex:none}.greedy-nav .visible-links a{position:relative}.greedy-nav .visible-links a:before{content:"";position:absolute;left:0;bottom:0;height:4px;background:#6f777d;width:100%;-webkit-transition:none;transition:none;-webkit-transform:scaleX(0) translate3d(0, 0, 0);transform:scaleX(0) translate3d(0, 0, 0)}.greedy-nav .visible-links a:hover:before{-webkit-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1)}.greedy-nav .hidden-links{position:absolute;top:100%;right:0;margin-top:15px;padding:5px;border:1px solid #f2f3f3;border-radius:4px;background:#fff;-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}.greedy-nav .hidden-links.hidden{display:none}.greedy-nav .hidden-links a{margin:0;padding:10px 20px;font-size:1em}.greedy-nav .hidden-links a:hover{color:#53595e;background:#dbdddf}.greedy-nav .hidden-links:before{content:"";position:absolute;top:-11px;right:10px;width:0;border-style:solid;border-width:0 10px 10px;border-color:#f2f3f3 transparent;display:block;z-index:0}.greedy-nav .hidden-links:after{content:"";position:absolute;top:-10px;right:10px;width:0;border-style:solid;border-width:0 10px 10px;border-color:#fff transparent;display:block;z-index:1}.greedy-nav .hidden-links li{display:block;border-bottom:1px solid #f2f3f3}.greedy-nav .hidden-links li:last-child{border-bottom:none}.no-js .greedy-nav .visible-links{-ms-flex-wrap:wrap;flex-wrap:wrap;overflow:visible}.nav__list{margin-bottom:1.5em}.nav__list input[type="checkbox"],.nav__list label{display:none}@media (max-width: 63.9375em){.nav__list label{position:relative;display:inline-block;padding:0.5em 2.5em 0.5em 1em;color:#7a8288;font-size:.75em;font-weight:bold;border:1px solid #bdc1c4;border-radius:4px;z-index:20;-webkit-transition:0.2s ease-out;transition:0.2s ease-out;cursor:pointer}.nav__list label:before,.nav__list label:after{content:"";position:absolute;right:1em;top:1.25em;width:0.75em;height:0.125em;line-height:1;background-color:#7a8288;-webkit-transition:0.2s ease-out;transition:0.2s ease-out}.nav__list label:after{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.nav__list label:hover{color:#fff;border-color:#7a8288;background-color:#333}.nav__list label:hover:before,.nav__list label:hover:after{background-color:#fff}.nav__list input:checked+label{color:white;background-color:#333}.nav__list input:checked+label:before,.nav__list input:checked+label:after{background-color:#fff}.nav__list label:hover:after{-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.nav__list input:checked+label:hover:after{-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}.nav__list ul{margin-bottom:1em}.nav__list a{display:block;padding:0.25em 0}}@media (max-width: 63.9375em) and (min-width: 64em){.nav__list a{padding-top:0.125em;padding-bottom:0.125em}}@media (max-width: 63.9375em){.nav__list a:hover{text-decoration:underline}}.nav__list .nav__items{margin:0;font-size:1.25rem}.nav__list .nav__items a{color:inherit}.nav__list .nav__items .active{margin-left:-0.5em;padding-left:0.5em;padding-right:0.5em;font-weight:bold}@media (max-width: 63.9375em){.nav__list .nav__items{position:relative;max-height:0;opacity:0%;overflow:hidden;z-index:10;-webkit-transition:0.3s ease-in-out;transition:0.3s ease-in-out;-webkit-transform:translate(0, 10%);-ms-transform:translate(0, 10%);transform:translate(0, 10%)}}@media (max-width: 63.9375em){.nav__list input:checked~.nav__items{-webkit-transition:0.5s ease-in-out;transition:0.5s ease-in-out;max-height:9999px;overflow:visible;opacity:1;margin-top:1em;-webkit-transform:translate(0, 0);-ms-transform:translate(0, 0);transform:translate(0, 0)}}.nav__title{margin:0;padding:0.5rem 0.75rem;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:1em;font-weight:bold}.nav__sub-title{display:block;margin:0.5rem 0;padding:0.25rem 0;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em;font-weight:bold;text-transform:uppercase;border-bottom:1px solid #f2f3f3}.toc{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;color:#7a8288;background-color:#fff;border:1px solid #f2f3f3;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,0.125);box-shadow:0 1px 1px rgba(0,0,0,0.125)}.toc .nav__title{color:#fff;font-size:.75em;background:#6f777d;border-top-left-radius:4px;border-top-right-radius:4px}.toc .active a{background-color:#e2e4e5;color:#3d4144}.toc__menu{margin:0;padding:0;width:100%;list-style:none;font-size:.75em}@media (min-width: 64em){.toc__menu{font-size:.6875em}}.toc__menu a{display:block;padding:0.25rem 0.75rem;color:#646769;font-weight:bold;line-height:1.5;border-bottom:1px solid #f2f3f3}.toc__menu a:hover{color:#3d4144}.toc__menu li ul>li a{padding-left:1.25rem;font-weight:normal}.toc__menu li ul li ul>li a{padding-left:1.75rem}.toc__menu li ul li ul li ul>li a{padding-left:2.25rem}.toc__menu li ul li ul li ul li ul>li a{padding-left:2.75rem}.toc__menu li ul li ul li ul li ul li ul>li a{padding-left:3.25rem}.layout--search .archive__item-teaser{margin-bottom:0.25em}.search__toggle{margin-left:1rem;margin-right:1rem;height:2rem;border:0;outline:none;color:#6f777d;background-color:transparent;cursor:pointer;-webkit-transition:0.2s;transition:0.2s}.search__toggle:hover{color:#53595e}.search-icon{width:100%;height:100%}.search-content{display:none;visibility:hidden;padding-top:1em;padding-bottom:1em}.search-content__inner-wrap{width:100%;margin-left:auto;margin-right:auto;padding-left:1em;padding-right:1em;-webkit-animation:none;animation:none;-webkit-animation-delay:0.15s;animation-delay:0.15s}@media (min-width: 80em){.search-content__inner-wrap{max-width:1280px}}.search-content__form{background-color:transparent}.search-content .search-input{display:block;margin-bottom:0;padding:0;border:none;outline:none;box-shadow:none;background-color:transparent;font-size:1.563em}@media (min-width: 64em){.search-content .search-input{font-size:1.953em}}@media (min-width: 80em){.search-content .search-input{font-size:2.441em}}.search-content.is--visible{display:block;visibility:visible}.search-content.is--visible::after{content:"";display:block}.search-content .results__found{margin-top:0.5em;font-size:.75em}.search-content .archive__item{margin-bottom:2em}@media (min-width: 64em){.search-content .archive__item{width:75%}}@media (min-width: 80em){.search-content .archive__item{width:50%}}.search-content .archive__item-title{margin-top:0}.search-content .archive__item-excerpt{margin-bottom:0}.ais-search-box{max-width:100% !important;margin-bottom:2em}.archive__item-title .ais-Highlight{color:#6f777d;font-style:normal;text-decoration:underline}.archive__item-excerpt .ais-Highlight{color:#6f777d;font-style:normal;font-weight:bold}.hidden,.is--hidden{display:none;visibility:hidden}.load{display:none}.transparent{opacity:0}.visually-hidden,.screen-reader-text,.screen-reader-text span,.screen-reader-shortcut{position:absolute !important;clip:rect(1px, 1px, 1px, 1px);height:1px !important;width:1px !important;border:0 !important;overflow:hidden}body:hover .visually-hidden a,body:hover .visually-hidden input,body:hover .visually-hidden button{display:none !important}.screen-reader-text:focus,.screen-reader-shortcut:focus{clip:auto !important;height:auto !important;width:auto !important;display:block;font-size:1em;font-weight:bold;padding:15px 23px 14px;background:#fff;z-index:100000;text-decoration:none;box-shadow:0 0 2px 2px rgba(0,0,0,0.6)}.skip-link{position:fixed;z-index:20;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;white-space:nowrap}.skip-link li{height:0;width:0;list-style:none}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-justify{text-align:justify}.text-nowrap{white-space:nowrap}.task-list{padding:0}.task-list li{list-style-type:none}.task-list .task-list-item-checkbox{margin-right:0.5em;opacity:1}.task-list .task-list{margin-left:1em}.cf{clear:both}.wrapper{margin-left:auto;margin-right:auto;width:100%}.align-left{display:block;margin-left:auto;margin-right:auto}@media (min-width: 37.5em){.align-left{float:left;margin-right:1em}}.align-right{display:block;margin-left:auto;margin-right:auto}@media (min-width: 37.5em){.align-right{float:right;margin-left:1em}}.align-center{display:block;margin-left:auto;margin-right:auto}@media (min-width: 64em){.full{margin-right:-20.3389830508% !important}}.icon{display:inline-block;fill:currentColor;width:1em;height:1.1em;line-height:1;position:relative;top:-0.1em;vertical-align:middle}.social-icons .fas,.social-icons .fab,.social-icons .far,.social-icons .fal{color:#3d4144}.social-icons .fa-behance,.social-icons .fa-behance-square{color:#1769ff}.social-icons .fa-bitbucket{color:#205081}.social-icons .fa-dribbble,.social-icons .fa-dribble-square{color:#ea4c89}.social-icons .fa-facebook,.social-icons .fa-facebook-square,.social-icons .fa-facebook-f{color:#3b5998}.social-icons .fa-flickr{color:#ff0084}.social-icons .fa-foursquare{color:#0072b1}.social-icons .fa-github,.social-icons .fa-github-alt,.social-icons .fa-github-square{color:#171516}.social-icons .fa-gitlab{color:#e24329}.social-icons .fa-instagram{color:#517fa4}.social-icons .fa-keybase{color:#ef7639}.social-icons .fa-lastfm,.social-icons .fa-lastfm-square{color:#d51007}.social-icons .fa-linkedin,.social-icons .fa-linkedin-in{color:#007bb6}.social-icons .fa-mastodon,.social-icons .fa-mastodon-square{color:#2b90d9}.social-icons .fa-pinterest,.social-icons .fa-pinterest-p,.social-icons .fa-pinterest-square{color:#cb2027}.social-icons .fa-reddit{color:#ff4500}.social-icons .fa-rss,.social-icons .fa-rss-square{color:#fa9b39}.social-icons .fa-soundcloud{color:#f30}.social-icons .fa-stack-exchange,.social-icons .fa-stack-overflow{color:#fe7a15}.social-icons .fa-tumblr,.social-icons .fa-tumblr-square{color:#32506d}.social-icons .fa-twitter,.social-icons .fa-twitter-square{color:#55acee}.social-icons .fa-vimeo,.social-icons .fa-vimeo-square,.social-icons .fa-vimeo-v{color:#1ab7ea}.social-icons .fa-vine{color:#00bf8f}.social-icons .fa-youtube{color:#b00}.social-icons .fa-xing,.social-icons .fa-xing-square{color:#006567}.navicon{position:relative;width:1.5rem;height:.25rem;background:#6f777d;margin:auto;-webkit-transition:0.3s;transition:0.3s}.navicon:before,.navicon:after{content:"";position:absolute;left:0;width:1.5rem;height:.25rem;background:#6f777d;-webkit-transition:0.3s;transition:0.3s}.navicon:before{top:-.5rem}.navicon:after{bottom:-.5rem}.close .navicon{background:transparent}.close .navicon:before,.close .navicon:after{-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;top:0;width:1.5rem}.close .navicon:before{-webkit-transform:rotate3d(0, 0, 1, 45deg);transform:rotate3d(0, 0, 1, 45deg)}.close .navicon:after{-webkit-transform:rotate3d(0, 0, 1, -45deg);transform:rotate3d(0, 0, 1, -45deg)}@supports (pointer-events: none){.greedy-nav__toggle:before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:0;background-color:#fff;-webkit-transition:none;transition:none;pointer-events:none}}.greedy-nav__toggle.close:before{opacity:0.9;-webkit-transition:none;transition:none;pointer-events:auto}.greedy-nav__toggle:hover .navicon,.greedy-nav__toggle:hover .navicon:before,.greedy-nav__toggle:hover .navicon:after{background:#53595e}.greedy-nav__toggle.close:hover .navicon{background:transparent}@media (min-width: 64em){.sticky{clear:both;position:-webkit-sticky;position:sticky;top:2em}.sticky::after{clear:both;content:"";display:table}.sticky>*{display:block}}.well{min-height:20px;padding:19px;margin-bottom:20px;background-color:#f5f5f5;border:1px solid #e3e3e3;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,0.05)}.show-modal{overflow:hidden;position:relative}.show-modal:before{position:absolute;content:"";top:0;left:0;width:100%;height:100%;z-index:999;background-color:rgba(255,255,255,0.85)}.show-modal .modal{display:block}.modal{display:none;position:fixed;width:300px;top:50%;left:50%;margin-left:-150px;margin-top:-150px;min-height:0;z-index:9999;background:#fff;border:1px solid #f2f3f3;border-radius:4px;box-shadow:0 1px 1px rgba(0,0,0,0.125)}.modal__title{margin:0;padding:0.5em 1em}.modal__supporting-text{padding:0 1em 0.5em 1em}.modal__actions{padding:0.5em 1em;border-top:1px solid #f2f3f3}.footnote{color:#9ba1a6;text-decoration:none}.footnotes{color:#9ba1a6}.footnotes ol,.footnotes li,.footnotes p{margin-bottom:0;font-size:.75em}a.reversefootnote{color:#7a8288;text-decoration:none}a.reversefootnote:hover{text-decoration:underline}.required{color:#ee5f5b;font-weight:bold}.gsc-control-cse table,.gsc-control-cse tr,.gsc-control-cse td{border:0}.responsive-video-container{position:relative;margin-bottom:1em;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%}.responsive-video-container iframe,.responsive-video-container object,.responsive-video-container embed{position:absolute;top:0;left:0;width:100%;height:100%}:-webkit-full-screen-ancestor .masthead,:-webkit-full-screen-ancestor .page__footer{position:static}#main{clear:both;margin-left:auto;margin-right:auto;padding-left:1em;padding-right:1em;-webkit-animation:none;animation:none;max-width:100%;-webkit-animation-delay:0.15s;animation-delay:0.15s}#main::after{clear:both;content:"";display:table}@media (min-width: 80em){#main{max-width:1280px}}body{display:-webkit-box;display:-ms-flexbox;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.initial-content,.search-content{flex:1 0 auto}@media (min-width: 64em){.page{float:right;width:calc(100% - 200px);padding-right:200px}}@media (min-width: 80em){.page{width:calc(100% - 300px);padding-right:300px}}.page .page__inner-wrap{float:left;margin-top:1em;margin-left:0;margin-right:0;width:100%;clear:both}.page .page__inner-wrap .page__content,.page .page__inner-wrap .page__meta,.page .page__inner-wrap .comment__date,.page .page__inner-wrap .page__share{position:relative;float:left;margin-left:0;margin-right:0;width:100%;clear:both}.page__title{margin-top:0;line-height:1}.page__title+.page__meta,.page__title+.comment__date{margin-top:-0.5em}.page__lead{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:1.25em}.page__content h2{padding-bottom:0.5em;border-bottom:1px solid #f2f3f3}.page__content h1 .header-link,.page__content h2 .header-link,.page__content h3 .header-link,.page__content h4 .header-link,.page__content h5 .header-link,.page__content h6 .header-link{position:relative;left:0.5em;opacity:0;font-size:0.8em;-webkit-transition:opacity 0.2s ease-in-out 0.1s;-moz-transition:opacity 0.2s ease-in-out 0.1s;-o-transition:opacity 0.2s ease-in-out 0.1s;transition:opacity 0.2s ease-in-out 0.1s}.page__content h1:hover .header-link,.page__content h2:hover .header-link,.page__content h3:hover .header-link,.page__content h4:hover .header-link,.page__content h5:hover .header-link,.page__content h6:hover .header-link{opacity:1}.page__content p,.page__content li,.page__content dl{font-size:1em}.page__content p{margin:0 0 1.3em}.page__content a:not(.btn):not(#goog-wm-sb):hover{text-decoration:underline}.page__content a:not(.btn):not(#goog-wm-sb):hover img{box-shadow:0 0 10px rgba(0,0,0,0.25)}.page__content dt{margin-top:1em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-weight:bold}.page__content dd{margin-left:1em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em}.page__content .small{font-size:.75em}.page__content blockquote+.small{margin-top:-1.5em;padding-left:1.25rem}.page__hero{position:relative;margin-bottom:2em;clear:both;-webkit-animation:none;animation:none;-webkit-animation-delay:0.25s;animation-delay:0.25s}.page__hero::after{clear:both;content:"";display:table}.page__hero--overlay{position:relative;margin-bottom:2em;padding:3em 0;clear:both;background-size:cover;background-repeat:no-repeat;background-position:center;-webkit-animation:none;animation:none;-webkit-animation-delay:0.25s;animation-delay:0.25s}.page__hero--overlay::after{clear:both;content:"";display:table}.page__hero--overlay a{color:#fff}.page__hero--overlay .wrapper{padding-left:1em;padding-right:1em}@media (min-width: 80em){.page__hero--overlay .wrapper{max-width:1280px}}.page__hero--overlay .page__title,.page__hero--overlay .page__meta,.page__hero--overlay .comment__date,.page__hero--overlay .page__lead,.page__hero--overlay .btn,.page__hero--overlay #goog-wm-sb{color:#fff;text-shadow:1px 1px 4px rgba(0,0,0,0.5)}.page__hero--overlay .page__lead{max-width:768px}.page__hero--overlay .page__title{font-size:1.953em}@media (min-width: 37.5em){.page__hero--overlay .page__title{font-size:2.441em}}.page__hero-image{width:100%;height:auto;-ms-interpolation-mode:bicubic}.page__hero-caption{position:absolute;bottom:0;right:0;margin:0 auto;padding:2px 5px;color:#fff;font-family:Georgia,Times,serif;font-size:.6875em;background:#000;text-align:right;z-index:5;opacity:0.5;border-radius:4px 0 0 0}@media (min-width: 64em){.page__hero-caption{padding:5px 10px}}.page__hero-caption a{color:#fff;text-decoration:none}.page__share{margin-top:2em;padding-top:1em;border-top:1px solid #f2f3f3}@media (max-width: 37.5em){.page__share .btn span,.page__share #goog-wm-sb span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}}.page__share-title{margin-bottom:10px;font-size:.75em;text-transform:uppercase}.page__meta,.comment__date{margin-top:2em;color:#646769;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em}.page__meta p,.comment__date p{margin:0}.page__meta a,.comment__date a{color:inherit}.page__meta-title{margin-bottom:10px;font-size:.75em;text-transform:uppercase}.page__taxonomy .sep{display:none}.page__taxonomy strong{margin-right:10px}.page__taxonomy-item{display:inline-block;margin-right:5px;margin-bottom:8px;padding:5px 10px;text-decoration:none;border:1px solid #b6b6b6;border-radius:4px}.page__taxonomy-item:hover{text-decoration:none;color:#235e70}.taxonomy__section{margin-bottom:2em;padding-bottom:1em}.taxonomy__section:not(:last-child){border-bottom:solid 1px #f2f3f3}.taxonomy__section .archive__item-title{margin-top:0}.taxonomy__section .archive__subtitle{clear:both;border:0}.taxonomy__section+.taxonomy__section{margin-top:2em}.taxonomy__title{margin-bottom:0.5em;color:#646769}.taxonomy__count{color:#646769}.taxonomy__index{display:grid;grid-column-gap:2em;grid-template-columns:repeat(2, 1fr);margin:1.414em 0;padding:0;font-size:0.75em;list-style:none}@media (min-width: 64em){.taxonomy__index{grid-template-columns:repeat(3, 1fr)}}.taxonomy__index a{display:-webkit-box;display:-ms-flexbox;display:flex;padding:0.25em 0;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;color:inherit;text-decoration:none;border-bottom:1px solid #f2f3f3}.back-to-top{display:block;clear:both;color:#646769;font-size:0.6em;text-transform:uppercase;text-align:right;text-decoration:none}.page__comments{float:left;margin-left:0;margin-right:0;width:100%;clear:both}.page__comments-title{margin-top:2rem;margin-bottom:10px;padding-top:2rem;font-size:.75em;border-top:1px solid #f2f3f3;text-transform:uppercase}.page__comments-form{-webkit-transition:none;transition:none}.page__comments-form.disabled input,.page__comments-form.disabled button,.page__comments-form.disabled textarea,.page__comments-form.disabled label{pointer-events:none;cursor:not-allowed;filter:alpha(opacity=65);box-shadow:none;opacity:0.65}.comment{clear:both;margin:1em 0}.comment::after{clear:both;content:"";display:table}.comment:not(:last-child){border-bottom:1px solid #f2f3f3}.comment__avatar-wrapper{float:left;width:60px;height:60px}@media (min-width: 64em){.comment__avatar-wrapper{width:100px;height:100px}}.comment__avatar{width:40px;height:40px;border-radius:50%}@media (min-width: 64em){.comment__avatar{width:80px;height:80px;padding:5px;border:1px solid #f2f3f3}}.comment__content-wrapper{float:right;width:calc(100% - 60px)}@media (min-width: 64em){.comment__content-wrapper{width:calc(100% - 100px)}}.comment__author{margin:0}.comment__author a{text-decoration:none}.comment__date{margin:0}.comment__date a{text-decoration:none}.page__related{clear:both;float:left;margin-top:2em;padding-top:1em;border-top:1px solid #f2f3f3}.page__related::after{clear:both;content:"";display:table}@media (min-width: 64em){.page__related{float:right;width:calc(100% - 200px)}}@media (min-width: 80em){.page__related{width:calc(100% - 300px)}}.page__related a{color:inherit;text-decoration:none}.page__related-title{margin-bottom:10px;font-size:.75em;text-transform:uppercase}@media (min-width: 64em){.wide .page{padding-right:0}}@media (min-width: 80em){.wide .page{padding-right:0}}@media (min-width: 64em){.wide .page__related{padding-right:0}}@media (min-width: 80em){.wide .page__related{padding-right:0}}.archive{margin-top:1em;margin-bottom:2em}@media (min-width: 64em){.archive{float:right;width:calc(100% - 200px);padding-right:200px}}@media (min-width: 80em){.archive{width:calc(100% - 300px);padding-right:300px}}.archive__item{position:relative}.archive__item a{position:relative;z-index:10}.archive__item a[rel="permalink"]{position:static}.archive__subtitle{margin:1.414em 0 0;padding-bottom:0.5em;font-size:1em;color:#646769;border-bottom:1px solid #f2f3f3}.archive__subtitle+.list__item .archive__item-title{margin-top:0.5em}.archive__item-title{margin-bottom:0.25em;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;line-height:initial;overflow:hidden;text-overflow:ellipsis}.archive__item-title a[rel="permalink"]::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0}.archive__item-title a+a{opacity:0.5}.page__content .archive__item-title{margin-top:1em;border-bottom:none}.archive__item-excerpt{margin-top:0;font-size:.75em}.archive__item-excerpt+p{text-indent:0}.archive__item-excerpt a{position:relative}.archive__item-teaser{position:relative;border-radius:4px;overflow:hidden}.archive__item-teaser img{width:100%}.archive__item-caption{position:absolute;bottom:0;right:0;margin:0 auto;padding:2px 5px;color:#fff;font-family:Georgia,Times,serif;font-size:.625em;background:#000;text-align:right;z-index:5;opacity:0.5;border-radius:4px 0 0 0}@media (min-width: 64em){.archive__item-caption{padding:5px 10px}}.archive__item-caption a{color:#fff;text-decoration:none}.list__item .page__meta,.list__item .comment__date{margin:0 0 4px;font-size:0.6em}@media (min-width: 64em){.archive .grid__wrapper{margin-right:-200px}}@media (min-width: 80em){.archive .grid__wrapper{margin-right:-300px}}.grid__item{margin-bottom:2em}@media (min-width: 37.5em){.grid__item{float:left;width:48.9795918367%}.grid__item:nth-child(2n + 1){clear:both;margin-left:0}.grid__item:nth-child(2n + 2){clear:none;margin-left:2.0408163265%}}@media (min-width: 48em){.grid__item{margin-left:0;margin-right:0;width:23.7288135593%}.grid__item:nth-child(2n + 1){clear:none}.grid__item:nth-child(4n + 1){clear:both}.grid__item:nth-child(4n + 2){clear:none;margin-left:1.6949152542%}.grid__item:nth-child(4n + 3){clear:none;margin-left:1.6949152542%}.grid__item:nth-child(4n + 4){clear:none;margin-left:1.6949152542%}}.grid__item .page__meta,.grid__item .comment__date{margin:0 0 4px;font-size:0.6em}.grid__item .archive__item-title{margin-top:0.5em;font-size:1em}.grid__item .archive__item-excerpt{display:none}@media (min-width: 48em){.grid__item .archive__item-excerpt{display:block;font-size:.75em}}@media (min-width: 37.5em){.grid__item .archive__item-teaser{max-height:200px}}@media (min-width: 48em){.grid__item .archive__item-teaser{max-height:120px}}.feature__wrapper{clear:both;margin-bottom:2em;border-bottom:1px solid #f2f3f3}.feature__wrapper::after{clear:both;content:"";display:table}.feature__wrapper .archive__item-title{margin-bottom:0}.feature__item{position:relative;margin-bottom:2em;font-size:1.125em}@media (min-width: 37.5em){.feature__item{float:left;margin-bottom:0;width:32.2033898305%}.feature__item:nth-child(3n + 1){clear:both;margin-left:0}.feature__item:nth-child(3n + 2){clear:none;margin-left:1.6949152542%}.feature__item:nth-child(3n + 3){clear:none;margin-left:1.6949152542%}.feature__item .feature__item-teaser{max-height:200px;overflow:hidden}}.feature__item .archive__item-body{padding-left:1.6949152542%;padding-right:1.6949152542%}.feature__item a.btn::before,.feature__item a#goog-wm-sb::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0}.feature__item--left{position:relative;float:left;margin-left:0;margin-right:0;width:100%;clear:both;font-size:1.125em}.feature__item--left .archive__item{float:left}.feature__item--left .archive__item-teaser{margin-bottom:2em}.feature__item--left a.btn::before,.feature__item--left a#goog-wm-sb::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0}@media (min-width: 37.5em){.feature__item--left .archive__item-teaser{float:left;width:40.6779661017%}.feature__item--left .archive__item-body{float:right;padding-left:1.6949152542%;padding-right:1.6949152542%;width:57.6271186441%}}.feature__item--right{position:relative;float:left;margin-left:0;margin-right:0;width:100%;clear:both;font-size:1.125em}.feature__item--right .archive__item{float:left}.feature__item--right .archive__item-teaser{margin-bottom:2em}.feature__item--right a.btn::before,.feature__item--right a#goog-wm-sb::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0}@media (min-width: 37.5em){.feature__item--right{text-align:right}.feature__item--right .archive__item-teaser{float:right;width:40.6779661017%}.feature__item--right .archive__item-body{float:left;width:57.6271186441%;padding-left:1.6949152542%;padding-right:1.6949152542%}}.feature__item--center{position:relative;float:left;margin-left:0;margin-right:0;width:100%;clear:both;font-size:1.125em}.feature__item--center .archive__item{float:left;width:100%}.feature__item--center .archive__item-teaser{margin-bottom:2em}.feature__item--center a.btn::before,.feature__item--center a#goog-wm-sb::before{content:'';position:absolute;left:0;top:0;right:0;bottom:0}@media (min-width: 37.5em){.feature__item--center{text-align:center}.feature__item--center .archive__item-teaser{margin:0 auto;width:40.6779661017%}.feature__item--center .archive__item-body{margin:0 auto;width:57.6271186441%}}.archive .feature__wrapper .archive__item-title{margin-top:0.25em;font-size:1em}.archive .feature__item,.archive .feature__item--left,.archive .feature__item--center,.archive .feature__item--right{font-size:1em}@media (min-width: 64em){.wide .archive{padding-right:0}}@media (min-width: 80em){.wide .archive{padding-right:0}}.layout--single .feature__wrapper{display:inline-block}.sidebar{clear:both}.sidebar::after{clear:both;content:"";display:table}@media (min-width: 64em){.sidebar{float:left;width:calc(200px - 1em);opacity:0.75;-webkit-transition:opacity 0.2s ease-in-out;transition:opacity 0.2s ease-in-out}.sidebar:hover{opacity:1}.sidebar.sticky{overflow-y:auto;height:calc(100vh - 2em - 2em)}}@media (min-width: 80em){.sidebar{width:calc(300px - 1em)}}.sidebar>*{margin-top:1em;margin-bottom:1em}.sidebar h2,.sidebar h3,.sidebar h4,.sidebar h5,.sidebar h6{margin-bottom:0;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif}.sidebar p,.sidebar li{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.75em;line-height:1.5}.sidebar img{width:100%}.sidebar img.emoji{width:20px;height:20px}.sidebar__right{margin-bottom:1em}@media (min-width: 64em){.sidebar__right{position:absolute;top:0;right:0;width:200px;margin-right:-200px;padding-left:1em;z-index:10}.sidebar__right.sticky{clear:both;position:-webkit-sticky;position:sticky;top:2em;float:right}.sidebar__right.sticky::after{clear:both;content:"";display:table}}@media (min-width: 80em){.sidebar__right{width:300px;margin-right:-300px}}@media (min-width: 64em){.splash .sidebar__right{position:relative;float:right;margin-right:0}}@media (min-width: 80em){.splash .sidebar__right{margin-right:0}}.author__avatar{display:table-cell;vertical-align:top;width:36px;height:36px}@media (min-width: 64em){.author__avatar{display:block;width:auto;height:auto}}.author__avatar img{max-width:110px;border-radius:50%}@media (min-width: 64em){.author__avatar img{padding:5px;border:1px solid #f2f3f3}}.author__content{display:table-cell;vertical-align:top;padding-left:15px;padding-right:25px;line-height:1}@media (min-width: 64em){.author__content{display:block;width:100%;padding-left:0;padding-right:0}}.author__content a{color:inherit;text-decoration:none}.author__name{margin:0}@media (min-width: 64em){.author__name{margin-top:10px;margin-bottom:10px}}.sidebar .author__name{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:1em}.author__bio{margin:0}@media (min-width: 64em){.author__bio{margin-top:10px;margin-bottom:20px}}.author__urls-wrapper{position:relative;display:table-cell;vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;z-index:20;position:relative;cursor:pointer}.author__urls-wrapper li:last-child a{margin-bottom:0}.author__urls-wrapper .author__urls span.label{padding-left:5px}@media (min-width: 64em){.author__urls-wrapper{display:block}}.author__urls-wrapper button{position:relative;margin-bottom:0}@supports (pointer-events: none){.author__urls-wrapper button:before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}}.author__urls-wrapper button.open:before{pointer-events:auto}@media (min-width: 64em){.author__urls-wrapper button{display:none}}.author__urls{display:none;position:absolute;right:0;margin-top:15px;padding:10px;list-style-type:none;border:1px solid #f2f3f3;border-radius:4px;background:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);cursor:default}.author__urls.is--visible{display:block}@media (min-width: 64em){.author__urls{display:block;position:relative;margin:0;padding:0;border:0;background:transparent;box-shadow:none}}.author__urls:before{display:block;content:"";position:absolute;top:-11px;left:calc(50% - 10px);width:0;border-style:solid;border-width:0 10px 10px;border-color:#f2f3f3 transparent;z-index:0}@media (min-width: 64em){.author__urls:before{display:none}}.author__urls:after{display:block;content:"";position:absolute;top:-10px;left:calc(50% - 10px);width:0;border-style:solid;border-width:0 10px 10px;border-color:#fff transparent;z-index:1}@media (min-width: 64em){.author__urls:after{display:none}}.author__urls ul{padding:10px;list-style-type:none}.author__urls li{white-space:nowrap}.author__urls a{display:block;margin-bottom:5px;padding-right:5px;padding-top:2px;padding-bottom:2px;color:inherit;font-size:1em;text-decoration:none}.author__urls a:hover{text-decoration:underline}.wide .sidebar__right{margin-bottom:1em}@media (min-width: 64em){.wide .sidebar__right{position:initial;top:initial;right:initial;width:initial;margin-right:initial;padding-left:initial;z-index:initial}.wide .sidebar__right.sticky{float:none}}@media (min-width: 80em){.wide .sidebar__right{width:initial;margin-right:initial}}@media print{[hidden]{display:none}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{margin:0;padding:0;min-height:auto !important;font-size:16px}body{margin:0 auto;background:#fff !important;color:#000 !important;font-size:1rem;line-height:1.5;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}h1,h2,h3,h4,h5,h6{color:#000;line-height:1.2;margin-bottom:0.75rem;margin-top:0}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-size:1.75rem}h4{font-size:1.5rem}h5{font-size:1.25rem}h6{font-size:1rem}a,a:visited{color:#000;text-decoration:underline;word-wrap:break-word}table{border-collapse:collapse}thead{display:table-header-group}table,th,td{border-bottom:1px solid #000}td,th{padding:8px 16px}img{border:0;display:block;max-width:100% !important;vertical-align:middle}hr{border:0;border-bottom:2px solid #bbb;height:0;margin:2.25rem 0;padding:0}dt{font-weight:bold}dd{margin:0;margin-bottom:0.75rem}abbr[title],acronym[title]{border:0;text-decoration:none}table,blockquote,pre,code,figure,li,hr,ul,ol,a,tr{page-break-inside:avoid}h2,h3,h4,p,a{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid}h1+p,h2+p,h3+p{page-break-before:avoid}img{page-break-after:auto;page-break-before:auto;page-break-inside:avoid}pre{white-space:pre-wrap !important;word-wrap:break-word}a[href^='http://']:after,a[href^='https://']:after,a[href^='ftp://']:after{content:" (" attr(href) ")";font-size:80%}abbr[title]:after,acronym[title]:after{content:" (" attr(title) ")"}#main{max-width:100%}.page{margin:0;padding:0;width:100%}.page-break,.page-break-before{page-break-before:always}.page-break-after{page-break-after:always}.no-print{display:none}a.no-reformat:after{content:''}abbr.no-reformat[title]:after,acronym.no-reformat[title]:after{content:''}.page__hero-caption{color:#000 !important;background:#fff !important;opacity:1}.page__hero-caption a{color:#000 !important}.masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}body{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font:20px/1.6 -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif}.notice--warning,.notice--ya,.notice--success,.notice--danger,.notice--primary,.notice,.notice--info{font-size:unset !important}body.html.page-node.page-node-.node-type-page{font-family:'Roboto'}h1,h2,h3{border-bottom:none !important}body.html.page-node.page-node-.node-type-page h1{border:none;margin:0;display:block;width:39%;font-size:300%;text-shadow:3px 3px 1px #000;overflow:hidden}body.html.page-node.page-node-.node-type-page pre,body.html.page-node.page-node-.node-type-page code{background-color:transparent;border:none;font-size:15px;margin:0}.masthead,.masthead__inner-wrap,.greedy-nav{background-color:#062135}.so-ver code{background:none}.page__hero--overlay .header-link{display:none}.mhl{color:#f6f8f8 !important;text-align:center}#menu-bar{background-color:#1F313E;overflow:hidden}#page-wrapper .so-menu ul li{float:left;position:relative;right:50%;border-left:1px solid #737572;transition:background-color 0.5s ease-in-out 0s;width:200px}.so-menu ul li a{font:bold 15px Roboto}.so-menu .last.leaf{border-right:1px solid #737572}.lang-nav{position:relative}.mar{margin:20px 0}.lang-mar{margin:11px 0}#lang-sel{position:absolute;float:right;right:25px;top:5px}a:not([href*='miningsoft.org']):not([href^='#']):not([href^='/']):not([href*='github.com']):not([href*='cutt.ly']):not(.top2):after{font-family:"Font Awesome 5 Free";font-weight:900;content:"\f35d";margin-left:4px;font-size:80%}.footer__link{border:1px solid #999;padding:5px;border-radius:5px}a.en.footer__link,a.ru.footer__link{background:none !important;font-weight:bold;font-family:"Font Awesome 5 Free";text-indent:0}a.en.footer__link:before,a.ru.footer__link:before{color:#4F529C;padding:5px;font-size:18px}a.en.footer__link:before{content:"\f74d"}a.ru.footer__link:before{content:"\f1ab"}#page-wrapper{height:100%;overflow:hidden}#paper{max-width:600px;max-height:700px;position:relative;margin:20px auto;padding-top:8px;padding-bottom:18px;background-color:#ffed87;box-shadow:0px 0px 5px 0px #888;border-radius:15px}#paper.amd{background-color:#fc9f95}.amd #pattern{background-image:repeating-linear-gradient(#fc9f95 0px, #fc9f95 24px, teal 25px)}#paper.nvidia{background-color:#aefcd3}.nvidia #pattern{background-image:repeating-linear-gradient(#aefcd3 0px, #aefcd3 24px, teal 25px)}#paper.wallet{background-color:#c9e1ff}.wallet #pattern{background-image:repeating-linear-gradient(#c9e1ff 0px, #c9e1ff 24px, teal 25px)}#paper.btc{background-color:#FFD07A}.btc #pattern{background-image:repeating-linear-gradient(#FFD07A 0px, #FFD07A 24px, teal 25px)}#paper.pink{background-color:#ffcfef}.pink #pattern{background-image:repeating-linear-gradient(#ffcfef 0px, #ffcfef 24px, teal 25px)}#paper.fio{background-color:#e8c9d3}.fio #pattern{background-image:repeating-linear-gradient(#e8c9d3 0px, #e8c9d3 24px, teal 25px)}.flauto{flex:auto}#paper::before{content:'';width:2px;height:100%;position:absolute;top:0;left:40px;background-color:#ffed87}#pattern{height:100%;background-image:repeating-linear-gradient(#ffed87 0px, #ffed87 24px, teal 25px)}#note-cont{padding-top:6px;padding-left:56px;padding-right:16px;line-height:47px;font-family:'Dancing Script', cursive, "Helvetica Neue",'Brush Script MT', cursive, "Trebuchet MS", 'Verdana', sans-serif;font-size:40px;letter-spacing:1px;word-spacing:5px;word-break:break-word;transform:rotate(-3deg)}.page__content h2{padding-bottom:0em}@media (max-width: 40.5em){.layout--single .sidebar{clear:both;position:absolute;bottom:-135px;z-index:9999}#main{position:relative}body>div.lang-mar{margin:22px auto auto;max-width:320px;height:108px}.hide{display:none}.page__footer{margin-top:5em}#note-cont{line-height:55px;padding-left:20px;font-size:1.7em}}.toc .nav__title{border-top-left-radius:10px;border-top-right-radius:10px}.nav__title .fas{color:#fff;padding-right:5px}.so-header{position:relative;min-height:472px;background-image:url(../items/phe-background.jpg);background-repeat:repeat-x;background-position:top center;background-size:100%;background-size:contain}.so-header h1{color:#fff;border:none;color:#fff;border:none;margin:0;display:block;font-size:300%;text-shadow:3px 3px 1px #000;overflow:hidden}.so-header h2{color:#fff;border:none;margin:0;display:block;width:39%;font-size:300%;text-shadow:3px 3px 1px #000;overflow:hidden}.so-header-flex{display:flex;height:100%;position:relative;top:0}.so-header-composition{position:relative;width:375px;box-shadow:1px 1px 1px #000;box-shadow:inset 93px 16px 300px 60px rgba(129,158,176,0.51);padding:20px;border-radius:20px}.green{color:#39ff39}.so-fast{font-size:140%;color:#fff;text-shadow:1px 1px 1px #000;margin:0 0 20px 0}.so-button a{color:#444;display:block;height:100%;position:relative;top:-62px;left:10px;text-decoration:none}.so-button{min-width:350px;color:#444;background-color:#FFF;overflow:hidden;cursor:pointer;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1;display:inline-block;position:relative;cursor:pointer;height:56px;line-height:62px;color:#424242;font-size:18px;font-weight:600;font-family:'Roboto', sans-serif;letter-spacing:.8px;text-align:center;text-decoration:none;text-transform:uppercase;vertical-align:middle;white-space:nowrap;outline:none;border:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:40px;transition:all 0.3s ease-out;box-shadow:0 14px 28px rgba(0,0,0,0.25);box-shadow:0 19px 38px rgba(0,0,0,0.41),0 15px 12px rgba(0,0,0,0.34);display:block;max-width:250px;text-transform:uppercase;background:linear-gradient(to top, #e0eef7, #fff);margin:0 auto}.fa,.fas,.far,.fab{color:#444;font-size:18px}.so-button i{font-size:25px !important;position:relative;top:3px;right:105px}.so-download .so-button i{right:166px}.so-button:hover a,.so-button:hover svg{color:#fff !important;text-decoration:none !important;transition:0.1s}.so-button:hover a,.so-button:hover i{color:#fff;text-decoration:none;transition:0.1s}.so-button:before,.so-button:after{transition:0.5s}*:before,*:after{z-index:-1}.so-button{color:#399cbe}.so-button:before{content:'';width:0;height:0;-webkit-transform:rotate(360deg);border-style:solid;border-width:0 0 0 0;border-color:transparent transparent transparent #0d536b;position:absolute;bottom:-1px;left:0}.so-button:after{content:'';width:0;height:0;-webkit-transform:rotate(360deg);border-style:solid;border-width:0 0 0 0;border-color:transparent transparent #0d536b transparent;position:absolute;right:0;bottom:-1px}.so-button:hover{color:#fff}.so-button:hover:before{border-width:206.25px 0 0 206.25px}.so-button:hover:after{border-width:0 0 206.25px 206.25px}.so-button:active{background:#168ab2}.so-advantage{background-color:#fcfcfc;padding:70px 0}.so-items{display:flex;justify-content:center}.so-vi{max-width:1366px;position:relative;margin:0 auto}.so-header .so-vi{margin:0 0 0 15vw}.page__content dd{font-size:.9em}.e-itm{width:330px;margin:0px 20px}.so-adv{font-size:25px;display:block;color:#415268;font-weight:777;text-align:center;margin:10px 0 0 0}span.so-icon-wrap{display:block;text-align:center}.e-itm{color:#415268;font-size:13px;text-align:center}.so-gpu{position:relative;min-height:520px;background-image:url(/assets/images/phe-gpu.jpg);background-repeat:repeat-x;background-position:top center;background-size:100%;background-size:contain}.so-start{background-color:#fff;padding:70px 0}.so-title{text-align:center;font-size:30px}.so-vi2{max-width:900px;margin:0 auto}.so-st{font-size:22px;display:block;color:#64748b;font-weight:777;margin:20px 0 0 0 !important}.so-row{box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);padding:15px;border-radius:15px;background-color:#fafafa}.so-attention{color:#a6acb3;font-style:italic;padding:10px;font-size:14px}.nev2{color:#bbbbbb}.so-grn{color:#39ff39;text-shadow:1px 1px 0px #000}.so-blu{color:#005873;font-weight:700}.so-arr{position:relative;min-height:54px;background-image:url(/assets/images/phe-arr.png);background-repeat:no-repeat;background-position:top center;background-size:11%;top:30px}.so-hash{padding:70px 0;background-color:#f1f8ff}.so-img{position:relative;min-height:472px;background-image:url(/assets/images/phe-hash.png);background-repeat:no-repeat;background-position:center center;background-size:50%;background-size:contain}.so-check{background-color:#f1f1f1;padding:70px 0 70px}.so-check .so-vi2{padding:0 0 20px 0}.so-pc{position:relative;min-height:472px;background-image:url(/assets/images/phe-check.png);background-repeat:no-repeat;background-position:center center;background-size:70%;background-color:#f1f1f1;padding:0 0 70px;background-size:contain}.so-get{position:relative}.so-down{background-color:#6c7c93;padding:80px 0;text-align:center;margin:0 auto}.so-button.down{display:inline-block;margin:50px auto 0;padding:0 80px;max-width:none;box-shadow:0 14px 28px rgba(0,0,0,0.25);background:linear-gradient(to top, #ffc107, #fff)}.so-button .svg-inline--fa{color:#4d7fa3;position:relative;right:175px;font-size:30px;top:4px}.so-ver{width:350px;color:#d6e3f7;margin:50px 20px 0 0;font-size:17px;word-break:break-word}.so-ver a{color:#bbbbbb}.so-mirror{position:absolute;bottom:-30px;left:0;color:#fff;right:0}.so-password{position:absolute;bottom:62px;color:#fff;background:#0020B3;border-radius:15px;padding:0px 10px}.so-mirror a{color:#fff;text-decoration:underline}.so-title.whitez1 a{color:#fff}.so-faq{background-color:#fff;padding:70px 0}.so-comm{background-color:#fcfcfc;padding:70px 0}.so-art{background-color:#fcfcfc;padding:5px 0 70px}.so-foot{padding:70px 0;line-height:0.9;font-size:16px}.so-flex{display:flex;justify-content:center;align-items:center}.postfooter p{display:inline-block}.nev3{color:#6b6b6b}.so-inner p{font-size:20px;line-height:1.60}.so-inner .so-vi2{max-width:600px;font-size:20px;line-height:1.60}.cn .so-button{max-width:250px}.tradingview-widget-container>div{height:500px}.so-500>iframe{height:500px !important}.cryptonatorwidget>div:nth-child(2){display:none}.so-relative{position:relative}.ccc-chart-v3 .chartTypeTabLinks{color:none !important}.ccc-chart-v3>div>div:nth-child(2)::before{content:"none" !important}.so-post-foot .so-vi2{font-size:12px;line-height:1.50;max-width:900px}.so-flex-inner{display:flex;justify-content:center;align-items:center;flex-direction:column}.so-down2{background-color:#0B30B3;padding:20px 0 40px;text-align:center;margin:0 0 20px;border-radius:20px}.so-down2 .so-button.down{padding:0 55px}.page__footer{color:#a5cfef;background-color:#062135}.red{color:red}.bold{font-weight:700}a.so-policy{margin:20px 20px 20px 20px;padding:20px 20px 20px 20px;display:block;margin:0 20px}.so-flex2{flex-direction:column;display:flex}.grid{grid-template-columns:repeat(auto-fit, minmax(350px, 8fr));margin:0 auto;display:grid;grid-gap:15px;border-radius:25px}.page__meta,.comment__date{margin-top:0}.read-more{border:1px solid #75aeca;background-color:transparent;color:#548eaa}.read-more:hover{border:1px solid transparent;background-color:#7aa1bd;color:#fff}.read-more:visited{color:none}.highlight code{background:none !important}table td{border:1px solid #c1c6c7}@media all and (min-width: 350px) and (max-width: 1023px){#page-wrapper .so-menu ul li{width:100%}.so-header-composition{word-break:break-all}.so-button{min-width:0}.so-header .so-vi{margin:0;max-width:320px}.so-header{min-height:382px;background-size:cover}.so-header-flex{margin:0 20px}.so-button{padding:0 36px}.e-itm{width:85%}.so-gpu{min-height:421px;background-size:cover}.so-items{flex-direction:column}.so-img{background-size:cover}.so-pc{position:relative;min-height:231px}.so-vi2{margin:0 20px}.so-flex{flex-direction:column}.so-button.down{max-width:288px;margin:50px 20px 0px 16px;padding:0px 14px !important;font-size:15px}.so-password{left:25px}.so-fast{font-size:140%;width:100%}.so-ver{width:270px}#page-wrapper .so-menu ul li{border-left:none}.block-menu ul li{border-left:none}.so-menu .last.leaf{border-right:none}.foot-itm.developer-resources{margin:0 20px}.so-left{float:none;width:100%;margin:0}.so-right{float:none;width:100%;margin:0}.so-header h1{width:auto}.so-header-composition{width:auto}.so-title{margin:0 20px}.so-button i{display:none}.breadcrumbs{display:none}}@media all and (min-width: 1024px) and (max-width: 1024px){.so-header .so-vi{left:0px;margin:0px}.so-header{background-size:cover}.so-gpu{background-size:cover}}@media all and (min-width: 1025px) and (max-width: 1280px){.so-header h1,.so-header h2{font-size:225%}.so-header{min-height:472px}.so-header-flex{top:62px;min-height:361px}.so-gpu{min-height:520px}.so-header .so-vi{margin:0 0 0 4vw}}@media all and (min-width: 1024px) and (max-width: 1365){.so-header{min-height:503px}.so-header-flex{top:120px;left:-49px}.so-gpu{min-height:557px}}@media all and (min-width: 1366px) and (max-width: 1439px){.so-header .so-vi{margin:0 0 0 10vw}.so-header{min-height:503px}.so-header-flex{top:34px;left:-49px}.so-gpu{min-height:557px}}@media all and (min-width: 1440px) and (max-width: 1535px){.so-header .so-vi{margin:0 0 0 10vw}.so-header{min-height:534px}.so-header-flex{top:40px}.so-gpu{min-height:594px}}@media all and (min-width: 1536px) and (max-width: 1598px){.so-header .so-vi{margin:0 0 0 10vw}.so-header{min-height:572px}.so-header-flex{top:64px}.so-gpu{min-height:634px}}@media all and (min-width: 1599px) and (max-width: 1679px){.so-header .so-vi{margin:0 0 0 10vw}.so-header{min-height:592px}.so-header-flex{top:65px;left:-23px}.so-gpu{min-height:655px}}@media all and (min-width: 1679px) and (max-width: 1919px){.so-header{min-height:626px}.so-header-flex{top:81px;left:-29px}.so-gpu{min-height:693px}}@media all and (min-width: 1920px) and (max-width: 3200px){.so-header{min-height:711px}.so-row{font-size:100%}.so-header-flex{top:134px;right:119px}.so-gpu{min-height:785px}}#go-top{position:fixed;top:0px;left:0;width:200px;height:100%;cursor:pointer;background:none;transition:all 0.5s linear;display:none}#go-top:hover{background-color:#dce1e6;transition:all 0.5s linear;opacity:1}#go-top-text{display:block;width:200px;padding:5px 10px;text-align:center;color:#3b9cba;font-weight:700;position:fixed;top:5%;opacity:.5;font-size:30px}#go-top:hover #go-top-text{opacity:1}#go-top-text:before{content:"\f077";font-family:"Font Awesome 5 Free";left:-5px;position:relative}@media (min-width: 37.5em){.feature__item:nth-child(3n + 1){clear:none;margin-left:1.6949152542%}.feature__item:nth-child(3n + 2){clear:both;margin-left:0}}body{margin:0;padding:0;color:#000;font-family:verdana,-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;line-height:1.57}h1{font-size:1.8em;letter-spacing:-.5px}img,.notice--warning,.toc,.notice--danger,.notice--success,.notice--info,.page__taxonomy-item,.pagination--pager,.btn,#goog-wm-sb{border-radius:10px}.notice--ya{padding:8px 0 8px 20px;border-left:3px solid #000;font-style:italic}.post{background:#ffffff;border:1px solid #dadce0;border-radius:8px;position:relative;padding:1rem;margin:0 0 20px 0}.archive__item-excerpt h2{margin:0}.archive__item-excerpt a{position:relative;text-decoration:none}.pagination li:last-child a{border-top-right-radius:10px;border-bottom-right-radius:10px}.pagination li:first-child a{border-top-left-radius:10px;border-bottom-left-radius:10px}.archive__subtitle{margin:1.414em 0 0 !important;padding-bottom:0.5em !important;font-size:1em !important;color:#595959 !important;border-bottom:1px solid #f2f3f3 !important}.archive__item-excerpt{margin-top:0}.masthead .fa-ethereum{color:#d3d3d4 !important;margin:0 10px 0 0}.masthead__inner-wrap{padding:0.1em}.masthead{border-bottom:none}.masthead,.masthead__inner-wrap,.greedy-nav{background-color:#1F313E}.greedy-nav a,.search__toggle,.navicon:before,.navicon:after,.navicon{color:#fbfbfb}.navicon:before,.navicon:after,.navicon{background:#fff}.greedy-nav a:hover{color:#e04266}.greedy-nav svg.svg-inline--fa.fa-medkit.fa-w-16{color:#1F313E;margin:0 10px 0 0;font-size:35px}.greedy-nav .hidden-links{background:#1F313E}.img-tit{text-align:center;display:block}.nev{color:#888}.notice--ya{padding:8px 0 8px 20px;border-left:3px solid #000;font-style:italic}.initial-content{background:rgba(248,248,242,0.12)}.toc__menu a{display:block;padding:0.25rem 0.75rem;color:#595959;font-weight:bold;line-height:1.5;border-bottom:1px solid #f2f3f3;font-size:1.3em !important}.toc__menu a{font-size:14px !important}.ytb-but{padding:10px 16px;margin:0px 0px 15px;font-weight:600;letter-spacing:.007px;text-transform:uppercase;display:flex;flex-direction:row-reverse;max-width:215px;border-radius:9px;outline:none;border-width:2px 0;border-style:solid none;border-color:#ff1d1d #000 #800000;background:linear-gradient(#e60d0d, #c00);font-size:16px}.ytb-but a{color:#fff;text-decoration:none !important;margin:0 auto}.ytb-but a:hover,.ytb-but a:focus{text-decoration:none;color:#fdfdfd}.page__hero--overlay{background-image:linear-gradient(rgba(34,86,130,0.05), rgba(151,134,123,0.05)),url(/assets/images/unsplash-image-1.jpg) !important}.so-header-composition{position:relative;width:415px;box-shadow:1px 1px 1px #000;box-shadow:inset 93px 16px 300px 60px rgba(129,158,176,0.51);padding:20px;border-radius:20px}.so-header .so-vi{margin:0 0 0 15vw}.so-vi{max-width:1366px;position:relative;margin:0 auto}.page__hero--overlay .wrapper{margin-left:0 !important}.page__hero--overlay .so-header-composition h1{color:#fff;border:none;color:#fff;border:none;margin:0;display:block;font-size:211%;overflow:hidden;font-family:Helvetica Neue;line-height:1.5}.page__hero--overlay .so-header-composition h1{text-shadow:3px 3px 1px #000 !important}.so-button{color:#399cbe}.so-button{min-width:350px;color:#444;background-color:#FFF;overflow:hidden;cursor:pointer;vertical-align:middle;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1;display:inline-block;position:relative;cursor:pointer;height:56px;line-height:62px;color:#424242;font-size:18px;font-weight:600;font-family:'Roboto', sans-serif;letter-spacing:.8px;text-align:center;text-decoration:none;text-transform:uppercase;vertical-align:middle;white-space:nowrap;outline:none;border:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border-radius:40px;transition:all 0.3s ease-out;box-shadow:0 14px 28px rgba(0,0,0,0.25);box-shadow:0 19px 38px rgba(0,0,0,0.41),0 15px 12px rgba(0,0,0,0.34);display:block;max-width:250px;text-transform:uppercase;background:linear-gradient(to top, #e0eef7, #fff);margin:0 auto}.so-button:before{content:'';width:0;height:0;-webkit-transform:rotate(360deg);border-style:solid;border-width:0 0 0 0;border-color:transparent transparent transparent #0d536b;position:absolute;bottom:0;left:0}.page__hero--overlay a{color:#444;display:block;height:100%;position:relative;left:-7px}.so-button a{color:#444;display:block;height:100%;position:relative;top:-62px;left:10px}.so-button:after{content:'';width:0;height:0;-webkit-transform:rotate(360deg);border-style:solid;border-width:0 0 0 0;border-color:transparent transparent #0d536b transparent;position:absolute;right:0;bottom:0}.feature__wrapper{border-bottom:none;margin-bottom:22px !important}.layout--splash #main{max-width:none !important;padding:0}.page__hero-caption{bottom:3px}.page__footer-copyright{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:.6875em;text-align:center;padding:20px}.page__related{background:#fff}.sidebar p,.sidebar li{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;font-size:0.75em !important;line-height:1.5}.page__content a{word-break:break-word}p>code,a>code,li>code,figcaption>code,td>code,.page__content code{padding-top:0.1rem;padding-bottom:0.1rem;background:#ebf5f8;word-break:break-all;border-radius:25px}.btn--x-large{font-size:1.25em !important}.archive__item-excerpt{word-break:break-word}.layout--splash .page__lead{font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif !important;font-size:1.25em !important;margin-top:1em !important}@media (min-width: 77.75em){#main{max-width:1155px}}@media (min-width: 80em){#main{max-width:1155px}}.youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;background:#000;margin:5px}.youtube-player iframe,.youtube-player object,.youtube-player embed{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:transparent}.youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;cursor:pointer;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.youtube-player img:hover{-webkit-filter:brightness(75%)}.youtube-player .play{height:72px;width:72px;left:50%;top:50%;margin-left:-36px;margin-top:-36px;position:absolute;background:url("/assets/images/play.png") no-repeat;cursor:pointer}.youtube-player:hover .play{transform:scale(1.2)}</style>
+<!--[if IE ]><style> /* old IE unsupported flexbox fixes */ .greedy-nav .site-title { padding-right: 3em; } .greedy-nav button { position: absolute; top: 0; right: 0; height: 100%; }</style><![endif]--> <!-- start custom head snippets --><link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff"> <!-- end custom head snippets --> <!--<script data-ad-client="ca-pub-6877281234114538" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --><meta name="coinzilla" content="02f8d116823a54b9ca884e45f302e933"> <!-- link alternate --><link rel="alternate" hreflang="ru" href="https://cryptosoft.download/ru/miners/xmrig/">
+<link rel="alternate" hreflang="en" href="https://cryptosoft.download/en/miners/xmrig/">
+</head>
+<body class="layout--single"> <!--[if lt IE 9]><div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</div><![endif]--><div class="masthead"><div class="masthead__inner-wrap"><div class="masthead__menu"><nav id="site-nav" class="greedy-nav"> <a class="site-title" href="/ru"> MiningSoft </a><ul class="visible-links">
+<li class="masthead__menu-item">
+<li> <a href="/ru/miners">Майнеры</a>
+</li>
+<li> <a href="/ru/wallets">Кошельки</a>
+</li>
+<li> <a href="/ru/tools">Программы</a>
+</li>
+</ul>
+<button class="search__toggle" type="button"> <span class="visually-hidden">Toggle search</span> <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16"><path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path> </svg> </button> <button class="greedy-nav__toggle hidden" type="button"> <span class="visually-hidden">Выпадающее меню</span><div class="navicon"></div></button><ul class="hidden-links hidden"></ul></nav></div></div></div>
+<div class="lang-nav"><nav id="lang-sel"> <a href="/ru/miners/xmrig/" class="ru footer__link">ru</a> <a href="/en/miners/xmrig/" class="en footer__link">en</a></nav></div>
+<div class="lang-mar imgcen"> <script async src="https://coinzillatag.com/lib/display.js"></script><div class="coinzilla" data-zone="C-32660aca95208f5f481"></div>
+<script> window.coinzilla_display = window.coinzilla_display || []; var c_display_preferences = {}; c_display_preferences.zone = "32660aca95208f5f481"; c_display_preferences.width = "728"; c_display_preferences.height = "90"; coinzilla_display.push(c_display_preferences); </script>
+</div>
+<div class="initial-content">
+<nav class="breadcrumbs"><ol itemscope itemtype="https://schema.org/BreadcrumbList">
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a href="https://cryptosoft.download/ru/" itemprop="item" rel="nofollow noopener" target="_blank"><span itemprop="name">Главная</span></a><meta itemprop="position" content="1"> <span class="sep">/</span>
+</li>
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a href="/ru/miners" itemprop="item"><span itemprop="name">Miners</span></a><meta itemprop="position" content="2"> <span class="sep">/</span>
+</li>
+<li class="current">XMRig: Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)</li>
+</ol></nav><div id="main" role="main">
+<div class="sidebar nosticky"><div itemscope itemtype="https://schema.org/Person">
+<div class="author__avatar"> <img width="97" height="97" src="/assets/images/matthewwood.webp" alt="Matthew Wood" itemprop="image" loading="lazy" decoding="async">
+</div>
+<div class="author__content">
+<h3 class="author__name" itemprop="name">Matthew Wood</h3>
+<p class="author__bio" itemprop="description"> Blockchain developer</p>
+</div>
+<div class="author__urls-wrapper"> <button class="btn btn--inverse">Связаться со мной</button><ul class="author__urls social-icons">
+<li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place"> <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">USA</span>
+</li>
+<li><a href="https://cryptosoft.download/" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-link" aria-hidden="true"></i> MiningSoft</a></li>
+<li><a href="https://www.facebook.com/ltcbtc" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+<li><a href="https://github.com/MatthewWood" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+</ul>
+</div>
+</div></div>
+<article class="page" itemscope itemtype="https://schema.org/CreativeWork"><meta itemprop="headline" content="XMRig: Скачать и Настроить [CUDA, CPU] - Гайд (v6.16.1)">
+<meta itemprop="description" content=" XMRig: Настройка команд для максимальной прибыли, Config для NiceHash. В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.">
+<meta itemprop="datePublished" content="August 14, 2021">
+<meta itemprop="dateModified" content="November 29, 2021">
+<div class="page__inner-wrap">
+<header><h1 id="page-title" class="page__title" itemprop="headline">XMRig: Скачать и настроить для майнинга Monero и других валют</h1>
+<p class="page__meta hide"><i class="far fa-clock" aria-hidden="true"></i> 16 мин на чтение</p></header><section class="page__content" itemprop="text"><aside class="sidebar__right sticky"><nav class="toc"><header><h4 class="nav__title"> <i class="fas fa-file-alt"></i> Содержание</h4></header><ul class="toc__menu">
+<li><a href="#%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%B4%D0%BB%D1%8F-windowslinux">Скачать для Windows/Linux</a></li>
+<li><a href="#xmrig">Что такое XMRig?</a></li>
+<li> <a href="#%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20XMRig">Как настроить XMRig</a><ul>
+<li><a href="#%D0%A8%D0%B0%D0%B3%201%20-%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D0%B9%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83">Шаг 1 - Скачайте программу</a></li>
+<li><a href="#%D0%A8%D0%B0%D0%B3%202%20-%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83">Шаг 2 - Настройте программу</a></li>
+<li><a href="#%D0%A8%D0%B0%D0%B3%203%20-%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D0%B5%20%D0%BC%D0%B0%D0%B9%D0%BD%D0%B5%D1%80">Шаг 3 - Запустите майнер</a></li>
+<li><a href="#%D0%92%D0%B8%D0%B4%D0%B5%D0%BE%20%D0%93%D0%B8%D0%B4">Видео Гид</a></li>
+</ul>
+</li>
+<li><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B4%D0%BB%D1%8F-nicehash">Настройка для Nicehash</a></li>
+<li><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B4%D0%BB%D1%8F-nvidia-cuda-%D0%B8-amd-opencl">Настройка для Nvidia (CUDA) и AMD (opencl)</a></li>
+<li><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-configjson">Настройка файла config.json</a></li>
+<li> <a href="#%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B0%D1%8F-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-xmrig-proxy">Подробная настройка xmrig proxy</a><ul><li><a href="#%D0%BA%D0%B0%D0%BA-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C-%D1%85%D0%B5%D1%88%D1%80%D0%B5%D0%B9%D1%82">Как проверить хешрейт</a></li></ul>
+</li>
+<li> <a href="#msr-mod">MSR Mod</a><ul><li><a href="#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Настройка производительности</a></li></ul>
+</li>
+<li><a href="#%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D1%8B-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4">Параметры команд</a></li>
+<li><a href="#%D0%BE%D0%B1%D0%B7%D0%BE%D1%80">Обзор</a></li>
+<li><a href="#%D0%BD%D0%B5-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%D1%81%D1%8F">Не запускается?</a></li>
+<li><a href="#%D0%B0%D0%BB%D1%8C%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%82%D0%B8%D0%B2%D1%8B">Альтернативы</a></li>
+<li><a href="#%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B">Алгоритмы</a></li>
+<li> <a href="#%D0%B2%D0%B8%D1%80%D1%83%D1%81-%D0%B8%D0%BB%D0%B8-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0-%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%B0">Вирус или программа безопасна?</a><ul><li><a href="#%D0%BA%D0%B0%D0%BA-%D1%83%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C">Как удалить?</a></li></ul>
+</li>
+<li><a href="#%D1%87%D0%B0%D1%81%D1%82%D1%8B%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B">Частые проблемы</a></li>
+<li><a href="#%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B">Выводы</a></li>
+<li><a href="#%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8">Версии</a></li>
+</ul></nav></aside><div id="paper" class="yel"><div id="pattern"><div id="note-cont"> XMRig: Настройка команд для максимальной прибыли, Config для NiceHash.</div></div></div>
+<p><em>В этом руководстве рассмотрено как запустить и как пользоваться программой XMRig последней версии 6.16.1 и выше.</em></p>
+<h2 id="скачать-для-windowslinux">Скачать для Windows/Linux</h2>
+<script async="" src="https://coinzillatag.com/lib/display.js"></script><div class="coinzilla" data-zone="C-26960aca952082b4725"></div>
+<script> window.coinzilla_display = window.coinzilla_display || []; var c_display_preferences = {}; c_display_preferences.zone = "26960aca952082b4725"; c_display_preferences.width = "300"; c_display_preferences.height = "250"; coinzilla_display.push(c_display_preferences); </script><p><a href="https://xmrig.com/" class="btn btn--yandex btn--x-large" rel="nofollow noopener" target="_blank">Скачать с сайта</a></p>
+<p><a href="https://github.com/xmrig/xmrig/releases" class="btn btn--primary btn--x-large" rel="nofollow noopener" target="_blank">Скачать с Github</a></p>
+<section><h2 id="xmrig">Что такое XMRig?</h2>
+<p><dfn>XMRig</dfn> – это консольный софт, задействующий специальные команды для майнинга таких криптовалют, как Monero (XMR). Для его работы необходимо создать файл конфигурации. Работает майнер с процессором (CPU) и видеокартами (AMD и Nvidia). Комиссия устанавливается в диапазоне от 1 до 5 процентов. По умолчанию стоит максимальное значения.</p>
+<p>XM Rig - бесплатное программное обеспечение под лицензией GNU GPL v3. Он доступен для Linux и Windows.</p></section><section id="how-to-start" itemscope="itemscope" itemtype="http://schema.org/HowTo"><h2 itemprop="name" id="Как настроить XMRig">Как настроить XMRig</h2>
+<div class="panel panel-default" id="step1" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="#step1">
+<meta itemprop="image" content="/assets/images/miners/xmrig/xmrig_download.png">
+<h3 class="panel-title" itemprop="name" id="Шаг 1 - Скачайте программу">Шаг 1 - Скачайте программу</h3>
+<div class="panel-body" itemprop="text">
+<p>Есть два варианта, чтобы скачать программу:</p>
+<ol>
+<li> <a href="https://xmrig.com/" rel="nofollow noopener" target="_blank">Официальный сайт разработчика</a>.</li>
+<li> <a href="https://github.com/xmrig/xmrig/releases" rel="nofollow noopener" target="_blank">На сайте GitHub.</a>
+</li>
+</ol>
+<p>В релизах GitHub прокрутите страницу до "Assets" и загрузите последнюю доступную версию.</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_download.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_download.png" alt="xmrig_download" loading="lazy" decoding="async"> </a></p>
+<p>Проведите разархивацию загруженного файла в удобное для вас место.</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_extract.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_extract.png" alt="xmrig_extract" loading="lazy" decoding="async"> </a></p>
+</div>
+</div>
+<div class="panel panel-default" id="step2" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="#step2">
+<meta itemprop="image" content="/assets/images/og.png">
+<h3 class="panel-title" itemprop="name" id="Шаг 2 - Настройте программу">Шаг 2 - Настройте программу</h3>
+<div class="panel-body" itemprop="text"><div>
+<p>В той же папке, что и <code>xmrig.exe</code>, создайте файл <code>monero.bat</code> со следующим содержимым:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">xmrig</span> <span class="na">-o </span><span class="kd">pool</span>.minexmr.com:443 <span class="na">-u </span><span class="m">84</span><span class="kd">XFxjQVYoJjQBeyfbcYBgJ1tw4cgywGyTp12nQw3mSKZctgMYuPGRH1y2LuBAS8yyT8ZX2NDS3CXbfFAxdXQJwAGMoMDSq</span> <span class="na">-k --tls
+</span><span class="nb">pause</span>
+</code></pre></div></div>
+<p>Просто замените <code>XFxjQVYoJjQBeyfbcYBgJ1tw4cgywGyTp12nQw3mSKZctgMYuPGRH1y2LuBAS8yyT8ZX2NDS3CXbfFAxdXQJwAGMoMDSq</code> на ваш адрес кошелька Monero.</p>
+<p>Файл с расширением <code>.bat</code> создается в любом текстовом редакторе.</p>
+</div></div>
+</div>
+<div class="panel panel-default" id="step3" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="/#step3">
+<meta itemprop="image" content="/assets/images/og.jpg">
+<h3 class="panel-title" itemprop="name" id="Шаг 3 - Запустите майнер">Шаг 3 - Запустите майнер</h3>
+<div class="panel-body" itemprop="text">
+<p>После создания или редактирования файла <code>monero.bat</code>, просто дважды щелкните его, появится окно терминала, и вы начнете майнить!</p>
+<a href="/assets/images/miners/xmrig/xmrig_hashrate.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_hashrate.png" alt="xmrig_hashrate" loading="lazy" decoding="async"> </a><p>Нижняя строчка отображает хешрейт.</p>
+</div>
+</div>
+<div class="panel panel-default" id="videoguide" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="panel-body">
+<meta itemprop="text" content="XmRig RandomX: Настройка программы для майнинга Monero">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/AuYo6cwjy4U">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/AuYo6cwjy4U">
+<h3 class="panel-title" itemprop="name" id="Видео Гид">Видео Гид</h3>
+<meta itemprop="description" content="XmRig RandomX: Настройка программы для майнинга Monero">
+<meta itemprop="uploadDate" content="2019-11-27">
+<meta itemprop="duration" content="PT8M22S">
+<div class="youtube-player" data-id="AuYo6cwjy4U"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+</div>
+</div></section><p>Майните на процессоре? Читайте про <a href="/ru/miners/cpuminer/">настройку Cpuminer-Opt</a>.</p>
+<h2 id="настройка-для-nicehash">Настройка для Nicehash</h2>
+<p>Использовать Nicehash можно двумя способами:</p>
+<ol>
+<li>Использовать саму оболочку Nicehash.</li>
+<li>Использовать только консоль XMRig.</li>
+</ol>
+<p>Рассмотрим второй вариант. Для этого нам нужно создать <code class="language-plaintext highlighter-rouge">.bat</code> файл со следующим текстом:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_nicehash_batch.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_nicehash_batch.png" alt="xmrig_nicehash_batch" loading="lazy" decoding="async"> </a></p>
+<ol>
+<li> <code class="language-plaintext highlighter-rouge">xmrig</code> – указывает, что запускается именно данная программа. Это менять не нужно.</li>
+<li> <code class="language-plaintext highlighter-rouge">randomx</code> – параметр указывает, какой алгоритм будет использоваться для добычи. Если хотите добывать Ravencoin на алгоритме kawpow, то пропишите <code class="language-plaintext highlighter-rouge">kawpow</code>.</li>
+<li> <code class="language-plaintext highlighter-rouge">-o</code> - после данного параметра вводится адрес пула. Указываете тот, который хотите использовать для добычи криптовалюты.</li>
+<li> <code class="language-plaintext highlighter-rouge">:3380</code> - после адреса сразу ставите двоеточие, и указываете номер порта.</li>
+<li> <code class="language-plaintext highlighter-rouge">-u</code> - впишите адрес криптовалютного кошелька. Открыть его можно на <a href="https://bytwork.com/markets" target="_blank">бирже криптовалют</a> или через <a href="/ru/wallets">программы криптокошельки</a>. Впишите вместо <code class="language-plaintext highlighter-rouge">3P7qADz69quhfyK5e9kvfno6Jyjq4Rcocx</code> адрес своего <a href="/ru/miners/nicehash/">Nicehash кошелька</a>.</li>
+<li> <code class="language-plaintext highlighter-rouge">.rig1</code> - это название вашего устройства. Это нужно для удобства отслеживания статистики. Указать можно любое значение.</li>
+</ol>
+<p>Пример:</p>
+<p class="notice--info"><code>xmrig -a randomx -o randomxmonero.eu.nicehash.com:3380 -u 3P7qADz69quhfyK5e9kvfno6Jyjq4Rcocx.rig1 --coin monero<br> pause</code></p>
+<p>В конце батника рекомендуем дописать команду <code class="language-plaintext highlighter-rouge">pause</code>. Она приостановит программу, если вылетит ошибка. В противном случае софт просто закрывается. С приостановкой же вы сможете посмотреть тип ошибки или неправильно прописанный синтаксис и справить проблему.</p>
+<p><span class="bold">Если используйте саму оболочку Nicehash:</span></p>
+<p>Чтобы сократить количество потоков при майнинге, вам необходимо выполнить следующие шаги:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_nicehash_cpu.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_nicehash_cpu.png" alt="xmrig_nicehash_cpu" loading="lazy" decoding="async"> </a></p>
+<ol>
+<li>Откройте вкладку Бенчмарк.</li>
+<li>Выберите ваш процессор и XMRig.</li>
+<li>Нажмите на шестеренку настроек.</li>
+<li>Найдите текстовое поле “Extra Launch Parameters” (доп. параметры запуска) и впишите <code class="language-plaintext highlighter-rouge">--threads=N</code>, где <code class="language-plaintext highlighter-rouge">N</code> это количество потоков, которое вы хотите использовать.</li>
+<li>Нажмите кнопку “Enable only this Algorithm”.</li>
+</ol>
+<p>Пример использования 8 потоков:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">--threads</span><span class="o">=</span><span class="m">8</span>
+</code></pre></div></div>
+<p>Пример снижения интенсивности использования процессора:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">--cpu-priority </span><span class="m">0</span>
+</code></pre></div></div>
+<p>Команда <code class="language-plaintext highlighter-rouge">--cpu-priority</code> отвечает за указание приоритета, под которым будет работать майнер в ОС. Доступные значения:</p>
+<ul>
+<li>0 - низкий,</li>
+<li>1 - ниже среднего,</li>
+<li>2 - средний,</li>
+<li>3 - выше среднего,</li>
+<li>4 - высокий,</li>
+<li>5 - реального времени (максимальный).</li>
+</ul>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/9HrxWixcNKI">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/9HrxWixcNKI"> <span class="panel-title" itemprop="name" id="Видео: Майнинг На Процессоре Monero ( алгоритм Random X) на Nicehash и Пулы">Видео: Майнинг На Процессоре Monero ( алгоритм Random X) на Nicehash и Пулы.</span><meta itemprop="description" content="Увеличиваем хэшрейт monero без особых усилий. Как разрешить huge pages в windows 10?">
+<meta itemprop="uploadDate" content="2019-12-01">
+<meta itemprop="duration" content="PT7M34S">
+<div class="youtube-player" data-id="9HrxWixcNKI"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+<h2 id="настройка-для-nvidia-cuda-и-amd-opencl">Настройка для Nvidia (CUDA) и AMD (opencl)</h2>
+<p>Если вы хотите майнить на видокартах тоже, то впишите ключ <code class="language-plaintext highlighter-rouge">--cuda</code> чтобы использовать карты Nvidia</p>
+<p>Пример для Нвидиа:</p>
+<p class="notice--success"><code>:start<br> xmrig -a randomx -o pool.supportxmr.com:5555 -u 4FBSiJSfXqPiiir33MpaZ9cqP4f4RsEyNChUQtfpMA95XtgJvWYyhcdRZ5KPhbWznBh2PGiFAtEYQZ3FynQVhsGj51wnp1ZeQvEA8VtNVH.rig1 -p x --donate-level=1 --cuda --coin monero<br> goto start </code></p>
+<p>Прпоишите ключ <code class="language-plaintext highlighter-rouge">--opencl</code> чтобы использовать AMD.</p>
+<p>Пример для АМД:</p>
+<p class="notice--danger"><code>:start<br> xmrig -a randomx -o pool.supportxmr.com:5555 -u 4FBSiJSfXqPiiir33MpaZ9cqP4f4RsEyNChUQtfpMA95XtgJvWYyhcdRZ5KPhbWznBh2PGiFAtEYQZ3FynQVhsGj51wnp1ZeQvEA8VtNVH.rig1 -p x --donate-level=1 --opencl --coin monero<br> goto start</code></p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/jZwrm6FB7kw">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/jZwrm6FB7kw"> <span class="panel-title" itemprop="name" id="Видео: Настройка майнера xmrig для майнинга монеро на видеокарте">Видео: Настройка майнера xmrig для майнинга монеро на видеокарте</span><meta itemprop="description" content="как настроить майнер на добывание монеты монеро с помощью видеокарты, если вы пропустили моё видео, как настроить майнинг на процессоре(более эффективный способ)">
+<meta itemprop="uploadDate" content="2021-03-02">
+<meta itemprop="duration" content="PT9M49S">
+<div class="youtube-player" data-id="jZwrm6FB7kw"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+<p>На этом настройка батника завершена. Ниже мы предоставим команды для более расширенной конфигурации работы программы.</p>
+<h2 id="настройка-файла-configjson">Настройка файла config.json</h2>
+<p>Настройка в батнике может быть недостаточной для получения максимальной эффективности. Стоит задействовать файл конфигурации. В папке он называется <code class="language-plaintext highlighter-rouge">config</code> и имеет расширение <code class="language-plaintext highlighter-rouge">.json</code>. Он является аналогом батника для запуска программы. Данная процедура необходима, чтобы добиться нужной производительности.</p>
+<p>Откройте файл <code class="language-plaintext highlighter-rouge">config.json</code> в любом текстовом редакторе и отредактируйте атрибут <code class="language-plaintext highlighter-rouge">pools</code> следующим образом:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_config.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_config.png" alt="xmrig_config" loading="lazy" decoding="async"> </a></p>
+<p>Вот полная строка кода:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"api"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"worker-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"http"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"access-token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"restricted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"autosave"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"background"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"colors"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"randomx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"init"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"init-avx2"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"1gb-pages"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rdmsr"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wrmsr"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cache_qos"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numa"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"scratchpad_prefetch_mode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"cpu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"huge-pages"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"huge-pages-jit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hw-aes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"priority"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"memory-pool"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"yield"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"asm"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"argon2-impl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"astrobwt-max-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">550</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"astrobwt-avx2"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"argon2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"astrobwt"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn-heavy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn-lite"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn-pico"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn/upx2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"rx"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"rx/wow"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w">
+        </span><span class="nl">"cn/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cn-lite/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rx/arq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rx/wow"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rx/keva"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rx/wow"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"opencl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cache"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"loader"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"adl"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cn/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cn-lite/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"cuda"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"loader"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nvml"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cn/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cn-lite/0"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"log-file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"donate-level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"donate-over-proxy"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pools"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"algo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pool.minexmr.com:443"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84XFxjQVYoJjQBeyfbcYBgJ1tw4cgywGyTp12nQw3mSKZctgMYuPGRH1y2LuBAS8yyT8ZX2NDS3CXbfFAxdXQJwAGMoMDSq"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rig-id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nicehash"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"keepalive"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tls"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tls-fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"daemon"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"socks5"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"self-select"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"submit-to-origin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"retries"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retry-pause"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"print-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"health-print-time"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dmi"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"syslog"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"protocols"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cert"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cert_key"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciphers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciphersuites"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dhparam"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"dns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ipv6"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ttl"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"user-agent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"verbose"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"watch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pause-on-battery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pause-on-active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Запустив программу, будет отображена следующая информация:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GeForce модель карты @ 2300/2920 MHz 16х39 8х25 arch:52 SMX:13 
+</code></pre></div></div>
+<p>Это говорит о том, что используется 16 потоков на 39 блоков, <code class="language-plaintext highlighter-rouge">bfactor</code> составляет <code class="language-plaintext highlighter-rouge">8x</code>, а <code class="language-plaintext highlighter-rouge">bsleep 25</code>. Задействована архитектура 52 с мультипроцессором <code class="language-plaintext highlighter-rouge">SMX 13</code>. Данные меняются в зависимости от модели видеокарты или процессора. Они отображают настройки видеоадаптера.</p>
+<p>Чтобы получить оптимальную производительность, необходимо опытным путем отрегулировать их. К примеру, если ПК зависает при добыче токена, то снизьте сумму используемых потоков и <code class="language-plaintext highlighter-rouge">bfactor</code>. Для каждой отдельной видеокарты в ферме можно прописывать данные через запятую. При этом указывается индекс, который является идентификатором используемой системы.</p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/WMGSbtj_y5s">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/WMGSbtj_y5s"> <span class="panel-title" itemprop="name" id="Видео: Майнинг на CPU. Как запустить майнер monero? Как создать кошелёк?">Видео: Майнинг на CPU. Как запустить майнер monero? Как создать кошелёк?</span><meta itemprop="description" content="Подробное обучающие видео для интересующихся майнингом на примере криптовалюты Monero. Для майнинга используется CPU.">
+<meta itemprop="uploadDate" content="2021-02-16">
+<meta itemprop="duration" content="PT17M38S">
+<div class="youtube-player" data-id="WMGSbtj_y5s"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+<h2 id="подробная-настройка-xmrig-proxy">Подробная настройка xmrig proxy</h2>
+<p><dfn>Xmrig-proxy</dfn> (пул прокси-серверов майнеров) - это дополнительный канал передачи между майнерами и пулами. Xmrig-proxy не только берет на себя роль майнинг-пула, но также берет на себя ответственность майнера. Xmrig-proxy получает задачи из пула, а затем назначает их майнерам для выполнения вычислений (в этом смысле он берет на себя роль пула майнинга).</p>
+<p>После завершения расчета майнеры отправляют шары в <code class="language-plaintext highlighter-rouge">xmrig-proxy</code>, затем <code class="language-plaintext highlighter-rouge">xmrig-proxy</code> отправляет данные в пул майнинга.</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_proxy.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy.png" alt="xmrig_proxy" loading="lazy" decoding="async"> </a></p>
+<p>Итак, при каких обстоятельствах следует использовать xmrig-proxy?</p>
+<ol>
+<li>Майнеры с большим количеством устройств могут использовать xmrig-proxy для централизованного управления вычислительной мощностью.</li>
+<li>Когда к определенному IP-адресу подключено множество майнеров, которые слишком часто отправляют шары (решения), пул будет рассматривать это как DDoS-атаку, и этот IP-адрес будет заблокирован пулом для майнинга. В это время можно установить прокси.</li>
+<li>Майнинг-пул находится далеко, и добавлен агент для улучшения подключения к сети.</li>
+</ol>
+<p><span class="bold">Руководство по использованию xmrig-proxy:</span></p>
+<ol>
+<li>Скачайте версию <a href="https://github.com/xmrig/xmrig-proxy/releases" rel="nofollow noopener" target="_blank">XMRig Proxy</a> и разархивировать ее.</li>
+<li><p>После распаковки вы увидите два файла: <code class="language-plaintext highlighter-rouge">xmrig-proxy.exe</code> и <code class="language-plaintext highlighter-rouge">config.json</code> (так же будут второстепенные файлы: <code class="language-plaintext highlighter-rouge">SHA256SUMS</code> и <code class="language-plaintext highlighter-rouge">start.bat</code>). <a href="/assets/images/miners/xmrig/xmrig_proxy_files.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_files.png" alt="xmrig_proxy_files" loading="lazy" decoding="async"> </a> Щелкните правой кнопкой мыши, чтобы отредактировать файл <code class="language-plaintext highlighter-rouge">config.json</code>. Для редактирования используйте редактор <a href="https://notepad-plus-plus.org/downloads/" rel="nofollow noopener" target="_blank">Notepad++</a><br> Порт майнинга можно использовать по умолчанию, если у вас есть особые потребности, вы можете изменить его самостоятельно. После модификации сохраните и выйдите.</p></li>
+<li>Дважды щелкните <code class="language-plaintext highlighter-rouge">xmrig-proxy</code>, чтобы запустить его и запустить службу пула прокси. Посмотрите на интерфейс, как на следующем рисунке, это означает, что ваш агент был запущен успешно. Возможно вам придется разрешить его запуск. Нажмите “Allow access”. <a href="/assets/images/miners/xmrig/xmrig_proxy_brandmouser.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_brandmouser.png" alt="xmrig_proxy_brandmouser" loading="lazy" decoding="async"> </a>
+</li>
+<li>После успешного запуска Xmrig-proxy нам нужно изменить адрес майнинг пула на <code class="language-plaintext highlighter-rouge">IP-адрес:порт машины</code>, на которой расположен xmrig-proxy. Остальные изменять не нужно. <a href="/assets/images/miners/xmrig/xmrig_proxy_pool.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_pool.png" alt="xmrig_proxy_pool" loading="lazy" decoding="async"> </a>
+</li>
+</ol>
+<p>Измените параметр <code class="language-plaintext highlighter-rouge">"url":</code> на ваш IP:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_proxy_ip.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_ip.png" alt="xmrig_proxy_ip" loading="lazy" decoding="async"> </a></p>
+<p>Затем запустите xmrig, как показано ниже:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_proxy_cmd.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_cmd.png" alt="xmrig_proxy_cmd" loading="lazy" decoding="async"> </a></p>
+<p>Вы увидите все майнеры в сети:</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_proxy_cmd2.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_proxy_cmd2.png" alt="xmrig_proxy_cmd2" loading="lazy" decoding="async"> </a></p>
+<h3 id="как-проверить-хешрейт">Как проверить хешрейт</h3>
+<p>В майнере XMrig proxy доступна проверка хешрейта, результатов и статуса видеокарт. При этом используется два способа просмотра данных:</p>
+<ol>
+<li>Через консоль.</li>
+<li>через API.</li>
+</ol>
+<p>Стандартно хешрейт отображается каждую минуту. Можете задействовать команду <code class="language-plaintext highlighter-rouge">print-time</code>, чтобы изменить данный показатель.</p>
+<p><a href="/assets/images/miners/xmrig/xmrig_nicehash_cmd.png" class="image-popup"> <img src="/assets/images/miners/xmrig/xmrig_nicehash_cmd.png" alt="xmrig_nicehash_cmd" loading="lazy" decoding="async"> </a></p>
+<p>В окне майнера нужно нажать следующие клавиши:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">H</code> – для вывода значения хешрейта.</li>
+<li> <code class="language-plaintext highlighter-rouge">E</code> – для показа работоспособности графического адаптера.</li>
+<li> <code class="language-plaintext highlighter-rouge">P</code> – чтобы нажать паузу.</li>
+<li> <code class="language-plaintext highlighter-rouge">R</code> – для возобновления работы.</li>
+</ul>
+<p>В случае, если программа отправляет шары на пул, то показывается оповещение <code class="language-plaintext highlighter-rouge">accepted</code>. При проблемах с конфигурацией система выдает <code class="language-plaintext highlighter-rouge">rejected</code>.</p>
+<h2 id="msr-mod">MSR Mod</h2>
+<p><dfn>MSR Mod</dfn> – это аппаратные предварительные выборки для решения фундаментальных проблем производительности. Алгоритм RandomX обращается к памяти случайным образом, поэтому предварительные выборки просто не работают.</p>
+<p>Иногда предварительной выборки можно отключить в <code class="language-plaintext highlighter-rouge">BIOS</code>. Для Intel это обычно настройка <code class="language-plaintext highlighter-rouge">Hardware Prefetcher</code> и прилежащая <code class="language-plaintext highlighter-rouge">Cache Line Prefetch</code>. Однако некоторые MSR нельзя отключить даже в BIOS. Во всех местах, где предварительная выборка может помочь, уже есть явные инструкции предварительной выборки в коде.</p>
+<p>Решение - настроить предварительные выборки с использованием регистров MSR на уровне ОС.</p>
+<p>Если вы используете последнюю версию XMRig с правами <code class="language-plaintext highlighter-rouge">root</code> (Linux) или администратора (Windows), майнер автоматически настраивает все регистры MSR. Если все в порядке, майнер получил все необходимые привилегии и ваш процессор их поддерживает, вы увидите строку, как показано ниже, в журнале майнера.</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">msr</span> <span class="kd">register</span> <span class="kd">values</span> <span class="k">for</span> <span class="s2">"intel"</span> <span class="kd">preset</span> <span class="kd">has</span> <span class="kd">been</span> <span class="kd">set</span> <span class="kd">successfully</span> <span class="o">(</span><span class="m">16</span> <span class="kd">ms</span><span class="o">)</span>
+</code></pre></div></div>
+<p>При некоторых конфигурациях оборудования / программного обеспечения также необходимо отключить <code class="language-plaintext highlighter-rouge">Secure Boot</code> (безопасную загрузку), чтобы мод MSR работал, проверьте <a href="https://github.com/xmrig/xmrig/issues/1891#issuecomment-725241656" rel="nofollow noopener" target="_blank">проблему № 1891 на github</a>.</p>
+<p>Поддерживаемые процессоры:</p>
+<ul>
+<li>Intel (Nehalem, Westmere, Sandy Bridge, Ivy Bridge, Haswell, Broadwell и новее).</li>
+<li>Ryzen (все процессоры на базе Zen: Ryzen, Threadripper, EPYC).</li>
+</ul>
+<p>XMRig по умолчанию восстанавливает исходные значения MSR при выходе, в любом случае изменения не сохраняются, перезагрузка компьютера всегда сбрасывает любые изменения.</p>
+<h3 id="настройка-производительности">Настройка производительности</h3>
+<p>Для конфигурации в <code class="language-plaintext highlighter-rouge">"randomx"</code> объекте доступны 2 варианта:</p>
+<ol>
+<li><code class="language-plaintext highlighter-rouge">"rdmsr"</code></li>
+<li><code class="language-plaintext highlighter-rouge">"wrmsr"</code></li>
+</ol>
+<p>Параметр <code class="language-plaintext highlighter-rouge">rdmsr</code>:<br> Используйте <code class="language-plaintext highlighter-rouge">"rdmsr": false</code> для отключения восстановления начальных значений MSR при выходе.</p>
+<p>Параметр <code class="language-plaintext highlighter-rouge">WRMSR</code>:<br> <code class="language-plaintext highlighter-rouge">"wrmsr": true</code> (по умолчанию) включить функцию <code class="language-plaintext highlighter-rouge">MSR</code> или <code class="language-plaintext highlighter-rouge">"wrmsr": false</code> отключить функцию MSR.</p>
+<p>WRMSR номер:<br> <code class="language-plaintext highlighter-rouge">"wrmsr": 15</code> Доступно только для Intel. Значение по умолчанию 15 для Intel в целом хорошо, но может не лучше, подробности см. в обсуждении <a href="https://github.com/xmrig/xmrig/issues/1433" rel="nofollow noopener" target="_blank">№ 1433 на github</a>.</p>
+<p><code class="language-plaintext highlighter-rouge">WRMSR</code> массив:<br> Очень продвинутый формат, для точной настройки. Используйте с осторожностью. Предустановленные значения, поставляемые с майнером:</p>
+<ul>
+<li><code class="language-plaintext highlighter-rouge">"wrmsr": ["0x1a4:0xf"] Intel preset.</code></li>
+<li> <code class="language-plaintext highlighter-rouge">"wrmsr": ["0xc0011020:0x4480000000000", "0xc0011021:0x1c000200000040:0xffffffffffffffdf", "0xc0011022:0xc000000401500000", "0xc001102b:0x2000cc14"]</code> AMD Ryzen (Zen3).</li>
+<li> <code class="language-plaintext highlighter-rouge">"wrmsr": ["0xc0011020:0x0", "0xc0011021:0x40:0xffffffffffffffdf", "0xc0011022:0x1510000", "0xc001102b:0x2000cc16"]</code> AMD Ryzen (Zen1/Zen2).</li>
+<li> <code class="language-plaintext highlighter-rouge">"wrmsr": ["0xc0011020:0x0", "0xc0011021:0x60", "0xc0011022:0x510000", "0xc001102b:0x1808cc16"]</code> Специальное настраиваемое значение для процессоров Zen первого поколения (с известной аппаратной ошибкой) для отключения opcache и включения мода MSR.</li>
+</ul>
+<p>Так же производительность сильно повышает параметр <a href="https://bytwork.com/soft/xmrig#toc--windows-large-page-" target="_blank">“блокировка страниц в памяти” (“huge pages”)</a>.</p>
+<p><span class="bold">Смотрите видео:</span></p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/kM3Hw3rC3Bw">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/kM3Hw3rC3Bw"> <span class="panel-title" itemprop="name" id="Видео: Оптимизация xmrig для монеты monero. Копаем monero на полную!">Видео: Оптимизация xmrig для монеты monero. Копаем monero на полную!</span><meta itemprop="description" content="Увеличиваем хэшрейт monero без особых усилий. Как разрешить huge pages в windows 10?">
+<meta itemprop="uploadDate" content="2021-05-01">
+<meta itemprop="duration" content="PT10M25S">
+<div class="youtube-player" data-id="kM3Hw3rC3Bw"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+<p>Еще увеличивает производительность параметр <a href="https://en.wikipedia.org/wiki/Processor_affinity" rel="nofollow noopener" target="_blank">CPU Affinity</a>.</p>
+<p><dfn>CPU Affinity</dfn> - это программное закрепления (привязка) к ядрам процессора конкретных вычислительных процессов.</p>
+<p>Пример команды в батнике:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">--cpu-affinity </span><span class="mh">0x155</span>
+</code></pre></div></div>
+<p>Воспользуйтесь <a href="https://bitsum.com/tools/cpu-affinity-calculator/" rel="nofollow noopener" target="_blank">онлайн калькулятором чтобы найти значения параметра CPU Affinity </a> для своего процессора.</p>
+<h2 id="параметры-команд">Параметры команд</h2>
+<p>Важно понять перед прочтением списка, что этот перечень команд указан в двух вариантах: длинное имя команды и ее короткий синоним.</p>
+<p>Вам нужно выбрать и использовать только один вариант команды:</p>
+<ol>
+<li>Либо длинное имя команды.</li>
+<li>Либо короткий синоним.</li>
+</ol>
+<p>Например, если указаны две команды:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-o</span><span class="p">,</span><span class="w"> </span><span class="nt">--url</span><span class="o">=</span><span class="n">URL</span><span class="w">
+</span></code></pre></div></div>
+<p>Мы используем либо:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-o</span><span class="w">
+</span></code></pre></div></div>
+<p>либо:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--url</span><span class="o">=</span><span class="n">URL</span><span class="w">
+</span></code></pre></div></div>
+<p>Пример использования короткой команды:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-o</span><span class="w"> </span><span class="n">pool.supportxmr.com:443</span><span class="w">
+</span></code></pre></div></div>
+<p>Пример использования длинного варианта команды:</p>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--url</span><span class="o">=</span><span class="n">pool.supportxmr.com:443</span><span class="w">
+</span></code></pre></div></div>
+<p>Сеть:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">-o</code>, <code class="language-plaintext highlighter-rouge">--url=URL</code> URL of mining server</li>
+<li> <code class="language-plaintext highlighter-rouge">-a</code>, <code class="language-plaintext highlighter-rouge">--algo=ALGO</code> mining algorithm https://xmrig.com/docs/algorithms</li>
+<li> <code class="language-plaintext highlighter-rouge">--coin=COIN</code> specify coin instead of algorithm</li>
+<li> <code class="language-plaintext highlighter-rouge">-u</code>, <code class="language-plaintext highlighter-rouge">--user=USERNAME</code> username for mining server</li>
+<li> <code class="language-plaintext highlighter-rouge">-p</code>, <code class="language-plaintext highlighter-rouge">--pass=PASSWORD</code> password for mining server</li>
+<li> <code class="language-plaintext highlighter-rouge">-O</code>, <code class="language-plaintext highlighter-rouge">--userpass=U:P</code> username:password pair for mining server</li>
+<li> <code class="language-plaintext highlighter-rouge">-x</code>, <code class="language-plaintext highlighter-rouge">--proxy=HOST:PORT</code> connect through a SOCKS5 proxy</li>
+<li> <code class="language-plaintext highlighter-rouge">-k</code>, <code class="language-plaintext highlighter-rouge">--keepalive</code> send keepalived packet for prevent timeout (needs pool support)</li>
+<li> <code class="language-plaintext highlighter-rouge">--nicehash</code> enable nicehash.com support</li>
+<li> <code class="language-plaintext highlighter-rouge">--rig-id=ID</code> rig identifier for pool-side statistics (needs pool support)</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls</code> enable SSL/TLS support (needs pool support)</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-fingerprint=HEX</code> pool TLS certificate fingerprint for strict certificate pinning</li>
+<li> <code class="language-plaintext highlighter-rouge">--dns-ipv6</code> prefer IPv6 records from DNS responses</li>
+<li> <code class="language-plaintext highlighter-rouge">--dns-ttl=N</code> N seconds (default: 30) TTL for internal DNS cache</li>
+<li> <code class="language-plaintext highlighter-rouge">--daemon </code> use daemon RPC instead of pool for solo mining</li>
+<li> <code class="language-plaintext highlighter-rouge">--daemon-poll-interval=N</code> daemon poll interval in milliseconds (default: 1000)</li>
+<li> <code class="language-plaintext highlighter-rouge">--self-select=URL</code> self-select block templates from URL</li>
+<li> <code class="language-plaintext highlighter-rouge">--submit-to-origin</code> also submit solution back to self-select URL</li>
+<li> <code class="language-plaintext highlighter-rouge">-r</code>, –retries=N number of times to retry before switch to backup server (default: 5)</li>
+<li> <code class="language-plaintext highlighter-rouge">-R</code>, –retry-pause=N time to pause between retries (default: 5)</li>
+<li> <code class="language-plaintext highlighter-rouge">--user-agent </code> set custom user-agent string for pool</li>
+<li> <code class="language-plaintext highlighter-rouge">--donate-level=N </code> donate level, default 1%% (1 minute in 100 minutes)</li>
+<li> <code class="language-plaintext highlighter-rouge">--donate-over-proxy=N</code> control donate over xmrig-proxy feature</li>
+</ul>
+<p>CPU backend:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">--no-cpu</code> disable CPU mining backend</li>
+<li> <code class="language-plaintext highlighter-rouge">-t</code>, <code class="language-plaintext highlighter-rouge">--threads=N</code> number of CPU threads, proper CPU affinity required for some optimizations.</li>
+<li> <code class="language-plaintext highlighter-rouge">--cpu-affinity=N</code> set process affinity to CPU core(s), mask 0x3 for cores 0 and 1</li>
+<li> <code class="language-plaintext highlighter-rouge">-v</code>, <code class="language-plaintext highlighter-rouge">--av=N</code> algorithm variation, 0 auto select</li>
+<li> <code class="language-plaintext highlighter-rouge">--cpu-priority=N</code> set process priority (0 idle, 2 normal to 5 highest)</li>
+<li> <code class="language-plaintext highlighter-rouge">--cpu-max-threads-hint=N</code> maximum CPU threads count (in percentage) hint for autoconfig</li>
+<li> <code class="language-plaintext highlighter-rouge">--cpu-memory-pool=N</code> number of 2 MB pages for persistent memory pool, -1 (auto), 0 (disable)</li>
+<li> <code class="language-plaintext highlighter-rouge">--cpu-no-yield</code> prefer maximum hashrate rather than system response/stability</li>
+<li> <code class="language-plaintext highlighter-rouge">--no-huge-pages</code> disable huge pages support</li>
+<li> <code class="language-plaintext highlighter-rouge">--huge-pages-jit</code> enable huge pages support for RandomX JIT code</li>
+<li> <code class="language-plaintext highlighter-rouge">--asm=ASM</code> ASM optimizations, possible values: auto, none, intel, ryzen, bulldozer</li>
+<li> <code class="language-plaintext highlighter-rouge">--argon2-impl=IMPL</code> argon2 implementation: x86_64, SSE2, SSSE3, XOP, AVX2, AVX-512F</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-init=N</code> threads count to initialize RandomX dataset</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-no-numa</code> disable NUMA support for RandomX</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-mode=MODE</code> RandomX mode: auto, fast, light</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-1gb-pages</code> use 1GB hugepages for RandomX dataset (Linux only)</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-wrmsr=N</code> write custom value(s) to MSR registers or disable MSR mod (-1)</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-no-rdmsr</code> disable reverting initial MSR values on exit</li>
+<li> <code class="language-plaintext highlighter-rouge">--randomx-cache-qos</code> enable Cache QoS</li>
+<li> <code class="language-plaintext highlighter-rouge">--astrobwt-max-size=N</code> skip hashes with large stage 2 size, default: 550, min: 400, max: 1200</li>
+<li> <code class="language-plaintext highlighter-rouge">--astrobwt-avx2</code> enable AVX2 optimizations for AstroBWT algorithm</li>
+</ul>
+<p>OpenCL backend:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">--opencl</code> enable OpenCL mining backend</li>
+<li> <code class="language-plaintext highlighter-rouge">--opencl-devices=N</code> comma separated list of OpenCL devices to use</li>
+<li> <code class="language-plaintext highlighter-rouge">--opencl-platform=N</code> OpenCL platform index or name</li>
+<li> <code class="language-plaintext highlighter-rouge">--opencl-loader=PATH</code> path to OpenCL-ICD-Loader (OpenCL.dll or libOpenCL.so)</li>
+<li> <code class="language-plaintext highlighter-rouge">--opencl-no-cache</code> disable OpenCL cache</li>
+<li> <code class="language-plaintext highlighter-rouge">--print-platforms</code> print available OpenCL platforms and exit</li>
+</ul>
+<p>CUDA backend:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">--cuda</code> enable CUDA mining backend</li>
+<li> <code class="language-plaintext highlighter-rouge">--cuda-loader=PATH</code> path to CUDA plugin (xmrig-cuda.dll or libxmrig-cuda.so)</li>
+<li> <code class="language-plaintext highlighter-rouge">--cuda-devices=N</code> comma separated list of CUDA devices to use</li>
+<li> <code class="language-plaintext highlighter-rouge">--cuda-bfactor-hint=N</code> bfactor hint for autoconfig (0-12)</li>
+<li> <code class="language-plaintext highlighter-rouge">--cuda-bsleep-hint=N</code> bsleep hint for autoconfig</li>
+<li> <code class="language-plaintext highlighter-rouge">--no-nvml</code> disable NVML (NVIDIA Management Library) support</li>
+</ul>
+<p>API:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">--api-worker-id=ID</code> custom worker-id for API</li>
+<li> <code class="language-plaintext highlighter-rouge">--api-id=ID</code> custom instance ID for API</li>
+<li> <code class="language-plaintext highlighter-rouge">--http-host=HOST</code> bind host for HTTP API (default: 127.0.0.1)</li>
+<li> <code class="language-plaintext highlighter-rouge">--http-port=N</code> bind port for HTTP API</li>
+<li> <code class="language-plaintext highlighter-rouge">--http-access-token=T</code> access token for HTTP API</li>
+<li> <code class="language-plaintext highlighter-rouge">--http-no-restricted</code> enable full remote access to HTTP API (only if access token set)</li>
+</ul>
+<p>TLS:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">--tls-gen=HOSTNAME</code> generate TLS certificate for specific hostname</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-cert=FILE</code> load TLS certificate chain from a file in the PEM format</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-cert-key=FILE</code> load TLS certificate private key from a file in the PEM format</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-dhparam=FILE</code> load DH parameters for DHE ciphers from a file in the PEM format</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-protocols=N</code> enable specified TLS protocols, example: “TLSv1 TLSv1.1 TLSv1.2 TLSv1.3”</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-ciphers=S</code> set list of available ciphers (TLSv1.2 and below)</li>
+<li> <code class="language-plaintext highlighter-rouge">--tls-ciphersuites=S</code> set list of available TLSv1.3 ciphersuites</li>
+</ul>
+<p>Logging:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">-l</code>, <code class="language-plaintext highlighter-rouge">--log-file=FILE</code> log all output to a file</li>
+<li> <code class="language-plaintext highlighter-rouge">--print-time=N</code> print hashrate report every N seconds</li>
+<li> <code class="language-plaintext highlighter-rouge">--health-print-time=N</code> print health report every N seconds</li>
+<li> <code class="language-plaintext highlighter-rouge">--no-color</code> disable colored output</li>
+<li> <code class="language-plaintext highlighter-rouge">--verbose</code> verbose output</li>
+</ul>
+<p>Misc:</p>
+<ul>
+<li> <code class="language-plaintext highlighter-rouge">-c</code>, –config=FILE load a JSON-format configuration file</li>
+<li> <code class="language-plaintext highlighter-rouge">-B</code>, –background run the miner in the background</li>
+<li> <code class="language-plaintext highlighter-rouge">-V</code>, –version output version information and exit</li>
+<li> <code class="language-plaintext highlighter-rouge">-h</code>, –help display this help and exit</li>
+<li> <code class="language-plaintext highlighter-rouge">--dry-run</code> test configuration and exit</li>
+<li> <code class="language-plaintext highlighter-rouge">--export-topology</code> export hwloc topology to a XML file and exit</li>
+<li> <code class="language-plaintext highlighter-rouge">--title</code> set custom console window title</li>
+<li> <code class="language-plaintext highlighter-rouge">--no-title</code> disable setting console window title</li>
+<li> <code class="language-plaintext highlighter-rouge">--pause-on-battery</code> pause mine on battery power</li>
+<li> <code class="language-plaintext highlighter-rouge">--pause-on-active=N</code> pause mine when the user is active (resume after N seconds of last activity)</li>
+<li> <code class="language-plaintext highlighter-rouge">--stress</code> run continuous stress test to check system stability</li>
+<li> <code class="language-plaintext highlighter-rouge">--bench=N</code> run benchmark, N can be between 1M and 10M</li>
+<li> <code class="language-plaintext highlighter-rouge">--submit</code> perform an online benchmark and submit result for sharing</li>
+<li> <code class="language-plaintext highlighter-rouge">--verify=ID</code> verify submitted benchmark by ID</li>
+<li> <code class="language-plaintext highlighter-rouge">--seed=SEED</code> custom RandomX seed for benchmark</li>
+<li> <code class="language-plaintext highlighter-rouge">--hash=HASH</code> compare benchmark result with specified hash</li>
+<li> <code class="language-plaintext highlighter-rouge">--no-dmi</code> disable DMI/SMBIOS reader</li>
+</ul>
+<h2 id="обзор">Обзор</h2>
+<p>Главные особенности:</p>
+<ul>
+<li>Предоставляется открытый исходный код для изучения.</li>
+<li>Имеет высокую производительность работы.</li>
+<li>Майнер официально поддерживает Windows.</li>
+<li>Поддерживает алгоритм RandomX, на который пришла популярная цифровая монета Monero.</li>
+<li>Программа также работает с сервисом NiceHash.</li>
+<li>Помимо RandomX программное обеспечение также работает на CryptoNight.</li>
+</ul>
+<p>Программа использует плагин CUDA для майнера. Используется в отдельных версиях программы. Он не обязателен, а потому не включен в основное программное обеспечение. Более того, данная технология требовательная к версии компилятора, а потому часто возникают конфликты с кодом работы процессора.</p>
+<h2 id="не-запускается">Не запускается?</h2>
+<p>От правильной настройки майнера зависит эффективность добычи цифровых токенов. Если же ввести параметры не верно, то программа просто не запустится или выдаст ошибку. Однако, при использовании расширенной конфигурации: настройки параметров работы видеокарты, частоты ядра и т.д., то появляется риск более быстрого износа оборудования.</p>
+<p>Если запуск все еще невозможен, посетите тематические форумы. Большинство проблем уже обсуждены и имеют решение. Главное правильно введите запрос в поисковую систему. Также вы можете посмотреть всю информацию на GitHub. Там же посоветоваться с другими пользователями.</p>
+<h2 id="альтернативы">Альтернативы</h2>
+<p>Существуют ли альтернативы? Да, например:</p>
+<ul>
+<li><a href="/ru/miners/cpuminer/">Cpuminer-Opt</a></li>
+<li><a href="https://bytwork.com/soft/srbminer-multi" target="_blank">SRBMiner-MULTI CPU и AMD GPU Miner</a></li>
+<li><a href="https://bytwork.com/soft/xmr-stak-rx" target="_blank">XMR-STAK-RX</a></li>
+</ul>
+<p>Майнеры для видеокарт:</p>
+<ol>
+<li><a href="/ru/miners/phoenixminer/">PhoenixMiner</a></li>
+<li><a href="/ru/miners/teamredminer/">TeamRedMiner</a></li>
+<li><a href="/ru/miners/lolminer/">LolMiner</a></li>
+<li><a href="/ru/miners/trexminer/">T-rex Miner</a></li>
+<li><a href="/ru/miners/nbminer/">NBMiner</a></li>
+</ol>
+<h2 id="алгоритмы">Алгоритмы</h2>
+<table>
+<colgroup>
+<col width="117">
+<col span="5" width="64">
+</colgroup>
+<tbody>
+<tr>
+<td>Имя</td>
+<td>Объем памяти </td>
+<td>Версия</td>
+<td>Описание</td>
+<td colspan="2">Примечания</td>
+</tr>
+<tr>
+<td>cn/upx2</td>
+<td>128 KB</td>
+<td>6.12.0+</td>
+<td colspan="3">CryptoNight-Femto (variant of CryptoNight V2 for Uplexa).</td>
+</tr>
+<tr>
+<td>argon2/chukwav2</td>
+<td>1 MB</td>
+<td>6.4.0+</td>
+<td>Argon2id (Chukwa v2).</td>
+<td>CPU only</td>
+<td> </td>
+</tr>
+<tr>
+<td>cn/ccx</td>
+<td>2 MB</td>
+<td>6.2.0+</td>
+<td colspan="2">Conceal (CCX)</td>
+<td> </td>
+</tr>
+<tr>
+<td>kawpow</td>
+<td>-</td>
+<td>6.0.0+</td>
+<td>KawPow (Ravencoin)</td>
+<td colspan="2">GPU only, not supported by xmrig-proxy</td>
+</tr>
+<tr>
+<td>rx/keva</td>
+<td>1 MB</td>
+<td>5.9.0+</td>
+<td colspan="3">RandomKEVA (RandomX variant for Keva).</td>
+</tr>
+<tr>
+<td>astrobwt</td>
+<td>20 MB</td>
+<td>5.8.0+</td>
+<td colspan="2">AstroBWT (Dero).</td>
+<td> </td>
+</tr>
+<tr>
+<td>cn-pico/tlo</td>
+<td>256 KB</td>
+<td>5.5.0+</td>
+<td colspan="3">CryptoNight-Pico (Talleo).</td>
+</tr>
+<tr>
+<td>rx/sfx</td>
+<td>2 MB</td>
+<td>5.4.0+</td>
+<td colspan="3">RandomSFX (RandomX variant for Safex).</td>
+</tr>
+<tr>
+<td>rx/arq</td>
+<td>256 KB</td>
+<td>4.3.0+</td>
+<td colspan="3">RandomARQ (RandomX variant for ArQmA).</td>
+</tr>
+<tr>
+<td>rx/0</td>
+<td>2 MB</td>
+<td>3.2.0+</td>
+<td colspan="3">RandomX (Monero).</td>
+</tr>
+<tr>
+<td>argon2/chukwa</td>
+<td>512 KB</td>
+<td>3.1.0+</td>
+<td>Argon2id (Chukwa).</td>
+<td>CPU only</td>
+<td> </td>
+</tr>
+<tr>
+<td>argon2/ninja</td>
+<td>256 KB</td>
+<td>3.1.0+</td>
+<td>Argon2id (NINJA)</td>
+<td>CPU only</td>
+<td> </td>
+</tr>
+<tr>
+<td>rx/wow</td>
+<td>1 MB</td>
+<td>3.0.0+</td>
+<td colspan="3">RandomWOW (RandomX variant for Wownero).</td>
+</tr>
+<tr>
+<td>cn/fast</td>
+<td>2 MB</td>
+<td>3.0.0+</td>
+<td colspan="3">CryptoNight variant 1 with half iterations.</td>
+</tr>
+<tr>
+<td>cn/rwz</td>
+<td>2 MB</td>
+<td>2.14.0+</td>
+<td colspan="3">CryptoNight variant 2 with 3/4 iterations and reversed shuffle operation.</td>
+</tr>
+<tr>
+<td>cn/zls</td>
+<td>2 MB</td>
+<td>2.14.0+</td>
+<td colspan="3">CryptoNight variant 2 with 3/4 iterations.</td>
+</tr>
+<tr>
+<td>cn/double</td>
+<td>2 MB</td>
+<td>2.14.0+</td>
+<td colspan="3">CryptoNight variant 2 with double iterations.</td>
+</tr>
+<tr>
+<td>cn/r</td>
+<td>2 MB</td>
+<td>2.13.0+</td>
+<td colspan="3">CryptoNightR (Monero's variant 4).</td>
+</tr>
+<tr>
+<td>cn-pico</td>
+<td>256 KB</td>
+<td>2.10.0+</td>
+<td colspan="2">CryptoNight-Pico.</td>
+<td> </td>
+</tr>
+<tr>
+<td>cn/half</td>
+<td>2 MB</td>
+<td>2.9.0+</td>
+<td colspan="3">CryptoNight variant 2 with half iterations.</td>
+</tr>
+<tr>
+<td>cn/2</td>
+<td>2 MB</td>
+<td>2.8.0+</td>
+<td colspan="3">CryptoNight variant 2.</td>
+</tr>
+<tr>
+<td>cn/xao</td>
+<td>2 MB</td>
+<td>2.6.4+</td>
+<td colspan="3">CryptoNight variant 0 (modified).</td>
+</tr>
+<tr>
+<td>cn/rto</td>
+<td>2 MB</td>
+<td>2.6.4+</td>
+<td colspan="3">CryptoNight variant 1 (modified).</td>
+</tr>
+<tr>
+<td>cn-heavy/tube</td>
+<td>4 MB</td>
+<td>2.6.4+</td>
+<td colspan="3">CryptoNight-Heavy (modified).</td>
+</tr>
+<tr>
+<td>cn-heavy/xhv</td>
+<td>4 MB</td>
+<td>2.6.3+</td>
+<td colspan="3">CryptoNight-Heavy (modified).</td>
+</tr>
+<tr>
+<td>cn-heavy/0</td>
+<td>4 MB</td>
+<td>2.6.0+</td>
+<td colspan="2">CryptoNight-Heavy.</td>
+<td> </td>
+</tr>
+<tr>
+<td>cn/1</td>
+<td>2 MB</td>
+<td>2.5.0+</td>
+<td colspan="3">CryptoNight variant 1.</td>
+</tr>
+<tr>
+<td>cn-lite/1</td>
+<td>1 MB</td>
+<td>2.5.0+</td>
+<td colspan="3">CryptoNight-Lite variant 1.</td>
+</tr>
+<tr>
+<td>cn-lite/0</td>
+<td>1 MB</td>
+<td>0.8.0+</td>
+<td colspan="3">CryptoNight-Lite variant 0.</td>
+</tr>
+<tr>
+<td>cn/0</td>
+<td>2 MB</td>
+<td>0.5.0+</td>
+<td colspan="3">CryptoNight (original).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="вирус-или-программа-безопасна">Вирус или программа безопасна?</h2>
+<p>XMRig это не вредоносная программа. Это легальная программа для майнинга криптовалют.</p>
+<p>Однако многие создатели вредоносных программ, операторы крупных ботнетов встраивают <code class="language-plaintext highlighter-rouge">xmrig-cuda.dll</code> в свои вредоносные программы, чтобы использовать компьютеры других людей для майнинга криптовалюты <span class="red">без их разрешения</span>. Именно поэтому антивирусное программное обеспечение рассматривает XMRig как вредоносное ПО из-за большого количества компьютеров, зараженных вредоносными программами, связанными с ним.</p>
+<p>Итого:</p>
+<ol>
+<li>Если вы скачали сами программу с официального источника на Github или сайте xmrig.com - то переживать не о чем.</li>
+<li>Если вы <span class="red">никогда не скачивали сами</span> эту программу - немедленно удалите ее.</li>
+</ol>
+<p>Поэтому некоторые антивирусные сканеры считают программу вредоносной потому, что антивирусы не делают различий между намеренным (сознательным) майнингом и скрытым майнингом (когда криптовалюта добывается без вашего ведома). В последнем случае нужно удалить программу из системы.</p>
+<h3 id="как-удалить">Как удалить?</h3>
+<p>Если вирус недавно начал действовать, то зайдите в папку system и посмотрите на дату изменения файлов, найдете. В ручную удаляется так: Shift+Delete.</p>
+<p>Если программу вы скачивали сами, то просто удалите ее как обычно вы удаляете файлы.</p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/m-cyYTZL5so">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/m-cyYTZL5so"> <span class="panel-title" itemprop="name" id="Видео: xmrig cpu miner - Вирус майнер">Видео: xmrig cpu miner - Вирус майнер</span><meta itemprop="description" content="Если вирус недавно начал действовать, то зайдите в папку system и посмотрите на дату изменения файлов, найдете. В ручную удалил так.">
+<meta itemprop="uploadDate" content="2018-06-02">
+<meta itemprop="duration" content="PT8M57S">
+<div class="youtube-player" data-id="m-cyYTZL5so"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">подписывайтесь</a></div>
+</div>
+<h2 id="частые-проблемы">Частые проблемы</h2>
+<p>У пользователей время от времени могут возникать различные проблемы с майнером. Одни связаны с драйверами, другие с особенностями алгоритма.</p>
+<p>К примеру, ошибка с алгоритмом выглядит так <code class="language-plaintext highlighter-rouge">wrong algo, use randomx miner</code>. Она возникает, когда вводится неправильный синтаксис алгоритма или не получилось его изменить. Также проблема может появиться из-за сильного разгона видеокарты.</p>
+<p>Проблема <code class="language-plaintext highlighter-rouge">low difficulty share</code> говорит о неправильно подобранном порте пуле. Задания приходят с ошибочной сложностью. Подбирайте пул на основании вашего оборудования. Учтите, что для фермы с высокопроизводительными картами, средне производительными процессорами и просто одной карты или домашнего компьютера выдаются разные категории портов.</p>
+<p>Ошибка <code class="language-plaintext highlighter-rouge">cryptonight_extra_cpu_finak</code> говорит о перегрузке системы. Следовательно, нужно уменьшить размер потоков и блоков.</p>
+<h2 id="выводы">Выводы</h2>
+<p>В данной статье мы рассмотрели, как работать с этой программой. Она имеет весьма обширные параметры для оптимизация процесса добычи криптовалют.</p>
+<h2 id="версии">Версии</h2>
+<p><a href="https://github.com/xmrig/xmrig/releases/tag/v6.16.1" rel="nofollow noopener" target="_blank">6.16.1</a></p>
+<ul>
+<li>добавлена поддержка алгоритма gr (GhostRider) для майнинга RTM/Raptoreum;</li>
+<li>Оптимизация VAES - не поддерживается <code class="language-plaintext highlighter-rouge">xmrig-6.16.1-linux-x64.tar.gz</code> из-за старого компилятора, используйте вместо него <code class="language-plaintext highlighter-rouge">xmrig-6.16.1-linux-static-x64.tar.gz</code>.</li>
+<li> <a href="https://xmrig.com/benchmark" rel="nofollow noopener" target="_blank">RandomX Benchmark</a>.</li>
+<li><a href="https://github.com/xmrig/xmrig/pull/1694#issuecomment-638310915" rel="nofollow noopener" target="_blank">Примечания к выпуску KawPow</a></li>
+<li>Следите за обновлениями, следите в Twitter - <a href="https://twitter.com/xmrig_dev" rel="nofollow noopener" target="_blank">https://twitter.com/xmrig_dev</a>
+</li>
+<li><a href="https://xmrig.com/wizard" rel="nofollow noopener" target="_blank">Мастер настройки</a></li>
+<li><a href="http://workers.xmrig.info/" rel="nofollow noopener" target="_blank">Панель управления для майнеров</a></li>
+<li>Для поддержки майнинга NVIDIA CUDA используйте любую обычную версию с <a href="https://github.com/xmrig/xmrig-cuda" rel="nofollow noopener" target="_blank">плагином CUDA</a>.</li>
+</ul></section><footer class="page__meta"><p class="page__taxonomy"> <i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Разделы: <span itemprop="keywords"> <a href="/ru/miners" class="page__taxonomy-item" rel="tag">miners</a> </span></p>
+<p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Дата изменения: <time datetime="2021-11-29T00:00:00+00:00">29.11.2021</time></p></footer>
+</div></article>
+</div>
+<!-- download --><div class="mar"> <!--<section class="so-down"><div class="so-title whitez1"><a id="download">Getting Started With Ethereum Mining</a></div><div class="so-download"><div class="so-flex"><div class="so-ver"> Latest version is 5.5c<br> File: *<code></code>, SHA256: 599393e258d8ba7b8f8633e20c651868258827d3a43a4d0712125bc487eabf92<br> <span class="nev2">(<a href="https://bit.ly/3bujasD">Download for Linux</a>)</span></div><div class="so-get"> <span class="so-password">Password: phoenix</span><div class="so-button down"><i class="far fa-arrow-alt-circle-down"></i> <a href="https://cutt.ly/NzVAJor" target="_blank">Download Now (Windows x64)</a></div><span class="so-mirror">(<a href="https://bit.ly/2MeIrhX" target="_blank" rel="nofollow">mirror</a>)</span></div></div></div></section>-->
+</div>
+<div id="main" class="phe-vi2"> <!-- related_posts --><div class="page__related">
+<h4 class="page__related-title">Вам также может понравиться</h4>
+<div class="grid__wrapper">
+<div class="grid__item"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async">
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/ru/miners/teamblackminer/" rel="permalink">Team Black Miner 1.28: Скачать, Настройки - Обзор [2021] </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 7 мин на чтение</p>
+<p class="archive__item-excerpt" itemprop="description"> TeamBlackMiner майнер: как настроить и запустить. Разблокировка LHR. В этом руководстве рассмотрено как запустить и как пользоваться ...</p></article></div>
+<div class="grid__item"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async">
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/ru/miners/bzminer/" rel="permalink">BzMiner 4.7: Скачать, Настройки (LHR) - NiceHash, ETH </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 4 мин на чтение</p>
+<p class="archive__item-excerpt" itemprop="description"> BzMiner майнер: как настроить и запустить. В этом руководстве рассмотрено как запустить и как пользоваться программой BzMiner последн...</p></article></div>
+<div class="grid__item"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async">
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/ru/miners/bminer/" rel="permalink">Bminer 16.4.9: Скачать, Настройки (LHR) - NiceHash, ETH </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 5 мин на чтение</p>
+<p class="archive__item-excerpt" itemprop="description"> Bminer майнер: как настроить и запустить с LHR разблокировкой. В этом руководстве рассмотрено как запустить и как пользоваться програ...</p></article></div>
+<div class="grid__item"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async">
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/ru/miners/miniz/" rel="permalink">MiniZ 1.8y4rc2: Скачать, Настройки (LHR) - NiceHash, ETH [2021] </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 7 мин на чтение</p>
+<p class="archive__item-excerpt" itemprop="description"> МиниЗ майнер: как настроить и запустить с LHR разблокировкой. В этом руководстве рассмотрено как запустить и как пользоваться програм...</p></article></div>
+</div>
+</div>
+<!-- post navigation footer --><section class="page__share"><h4 class="page__share-title">Поделиться</h4>
+<a href="https://twitter.com/intent/tweet?via=mza&amp;text=XMRig%26%2358%3B+%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C+%D0%B8+%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C+%5BCUDA%2C+CPU%5D+-+%D0%93%D0%B0%D0%B9%D0%B4+%28v6.16.1%29%20https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fxmrig%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Поделиться Twitter" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fxmrig%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Поделиться Facebook" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a> <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fxmrig%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Поделиться LinkedIn" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a></section><nav class="pagination"> <a href="/ru/tools/apminertool/" class="pagination--pager" title="APMinerTool [v1.0.11]: Как Пользоваться, Скачать ">Предыдущая</a> <a href="/ru/tools/rbe/" class="pagination--pager" title="Red Bios Editor (RBE) [v1.0.7]: Скачать, Инструкция, Настройка ">Следующая</a></nav><!-- comments --> <!-- -->
+</div>
+</div>
+<div class="search-content"><div class="search-content__inner-wrap">
+<input type="search" id="search" aria-placeholder="Введите поисковый запрос..." class="search-input" tabindex="-1" placeholder="Введите поисковый запрос..."><div id="results" class="results"></div>
+</div></div>
+<div class="page__footer"><footer> <!-- start custom footer snippets --> <!-- end custom footer snippets --> <!-- footer--><section class="so-post-foot clearfix"><div class="so-flex">
+<div class="grid__item">
+<p><a href="/ru/advertising/" class="back_to_top">Реклама</a></p>
+<p><a href="/ru/about">О сайте</a></p>
+<p><a href="/ru/contact/" class="back_to_top">Контакты</a></p>
+</div>
+<div class="grid__item">
+<p><a href="/ru/miners">Майнеры</a></p>
+<p><a href="/ru/tools">Программы</a></p>
+<p><a href="#" class="back_to_top">Наверх</a></p>
+</div>
+</div></section><div class="postfooter">
+<p><a href="/ru/legal/cookie" class="tim-policy" rel="nofollow">Политика Cookie</a> |</p>
+<p><a href="/ru/legal/privacy" class="tim-policy" rel="nofollow">Политика Конфиденциальности</a> |</p>
+<p><a href="/ru/legal/terms/" class="tim-policy" rel="nofollow">Условия</a> |</p>
+<p><a href="/ru/legal/disclaimer" class="tim-policy" rel="nofollow">Отказ от Ответственности</a> |</p>
+</div>
+<hr class="hrdark"> © 2021 MiningSoft.</footer></div>
+<script src="/assets/js/main.min.js"></script> <script src="/assets/js/lunr/lunr.min.js"></script> <script src="/assets/js/lunr/lunr-store.js"></script> <script src="/assets/js/lunr/lunr-en.js"></script> <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-NCDX3T5');</script> <!-- End Google Tag Manager --> <script defer src="/assets/js/youtube-custom-lazy.js"></script> <!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCDX3T5" height="0" width="0" style="display:none;visibility:hidden" loading="lazy" decoding="async"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <script src="https://coinzillatag.com/lib/sticky.js"></script> <script>window.coinzilla_sticky = window.coinzilla_sticky || [];function czilla(){coinzilla_sticky.push(arguments);}czilla('19660aca9520a28c368');</script>
+</body>
+</html>
