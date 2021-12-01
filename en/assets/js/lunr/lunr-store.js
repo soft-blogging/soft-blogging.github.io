@@ -1,5 +1,5 @@
 var store = [{
-        "title": "Об Авторе - Josh Rager",
+        "title": "About the Author - Josh Rager",
         "excerpt":"                         **   ","categories": ["profiles"],
         "tags": [],
         "url": "/ru/profiles/josh-rager/",
