@@ -2,24 +2,26 @@
 <html lang="en" class="no-js">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8"> <!-- begin _includes/seo.html --><title>Mining Software for Windows (Ethereum, Altcoins) &amp; Guildes</title>
-<meta name="description" content="Miners developer">
+<meta charset="utf-8"> <!-- begin _includes/seo.html --><title>TT Miner 6.1.0 - Download and configure for KawPow</title>
+<meta name="description" content="TT-Miner: how to set up and running, command line arguments. Complete tutorial for setting up TT Miner version 6.1.0 and newer.">
 <meta name="author" content="Josh Rager">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="CryptoSoft">
-<meta property="og:title" content="Mining Software for Windows (Ethereum, Altcoins) &amp; Guildes">
-<meta property="og:url" content="https://cryptosoft.download/en/miners/ ">
-<meta property="og:description" content="Miners developer">
+<meta property="og:title" content="TT Miner 6.1.0 - Download and configure for KawPow">
+<meta property="og:url" content="https://cryptosoft.download/en/miners/ttminer/ ">
+<meta property="og:description" content="TT-Miner: how to set up and running, command line arguments. Complete tutorial for setting up TT Miner version 6.1.0 and newer.">
 <meta property="og:image" content="https://cryptosoft.download/assets/images/site-logo.png">
 <meta name="twitter:site" content="@Josh_Rager">
-<meta name="twitter:title" content="pages.miners.title">
-<meta name="twitter:description" content="Miners developer">
-<meta name="twitter:url" content="https://cryptosoft.download/ru/miners/">
+<meta name="twitter:title" content="TT Miner 6.1.0 - Download and configure for KawPow">
+<meta name="twitter:description" content="TT-Miner: how to set up and running, command line arguments. Complete tutorial for setting up TT Miner version 6.1.0 and newer.">
+<meta name="twitter:url" content="https://cryptosoft.download/ru/miners/ttminer/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cryptosoft.download/assets/images/site-logo.png">
-<link rel="canonical" href="https://cryptosoft.download/en/miners/"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "headline": "Mining Software for Windows (Ethereum, Altcoins) & Guildes", "image": "", "author": { "@type": "Person", "name": "Josh Rager", "url": "https://cryptosoft.download/en/about", "sameAs": "https://twitter.com/Josh_Rager" }, "publisher": { "@type": "Organization", "name": "CryptoSoft", "logo": { "@type": "ImageObject", "url": "https://cryptosoft.download/assets/images/logo2.png" } }, "dateModified": "" } </script><meta name="google-site-verification" content="rJ8ePpp6jhAdosu8_5WwZ3-EXjasi-kBy7gqgDrxGP0">
-<meta name="yandex-verification" content="2c611c0d72bcc84a"> <!-- end _includes/seo.html --><meta name="description" content="Miners developer">
+<meta property="article:published_time" content="2021-12-07T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-12-08T00:00:00+00:00">
+<link rel="canonical" href="https://cryptosoft.download/en/miners/ttminer/"> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Article", "headline": "TT Miner 6.1.0 - Download and configure for KawPow", "image": "", "author": { "@type": "Person", "name": "Josh Rager", "url": "https://cryptosoft.download/en/about", "sameAs": "https://twitter.com/Josh_Rager" }, "publisher": { "@type": "Organization", "name": "CryptoSoft", "logo": { "@type": "ImageObject", "url": "https://cryptosoft.download/assets/images/logo2.png" } }, "dateModified": "2021-12-08T00:00:00+00:00" } </script><meta name="google-site-verification" content="rJ8ePpp6jhAdosu8_5WwZ3-EXjasi-kBy7gqgDrxGP0">
+<meta name="yandex-verification" content="2c611c0d72bcc84a"> <!-- end _includes/seo.html --><meta name="description" content="TT-Miner: how to set up and running, command line arguments. Complete tutorial for setting up TT Miner version 6.1.0 and newer.">
 <meta name="author" content="Josh Rager">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="CryptoSoft Feed">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <script> document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js '; </script> <!-- For all browsers --><link rel="stylesheet" href="/assets/css/main.css">
@@ -31,27 +33,314 @@
 <link rel="manifest" href="/assets/images/site.webmanifest">
 <link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff"> <!-- link alternate --><link rel="alternate" hreflang="ru" href="https://cryptosoft.download/ru/miners/index.html">
-<link rel="alternate" hreflang="en" href="https://cryptosoft.download/en/miners/index.html">
+<meta name="theme-color" content="#ffffff"> <!-- link alternate --><link rel="alternate" hreflang="ru" href="https://cryptosoft.download/ru/miners/ttminer/">
+<link rel="alternate" hreflang="en" href="https://cryptosoft.download/en/miners/ttminer/">
 </head>
-<body class="layout--articles"> <!--[if lt IE 9]><div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</div><![endif]--><div class="masthead"><div class="masthead__inner-wrap"><div class="masthead__menu"><nav id="site-nav" class="greedy-nav"> <a class="site-title" href="/en"> CryptoSoft </a><ul class="visible-links">
+<body class="layout--single"> <!--[if lt IE 9]><div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please upgrade your browser to improve your experience.</div><![endif]--><div class="masthead"><div class="masthead__inner-wrap"><div class="masthead__menu"><nav id="site-nav" class="greedy-nav"> <a class="site-title" href="/en"> CryptoSoft </a><ul class="visible-links">
 <li class="masthead__menu-item">
 <li> <a href="/en/miners">Miners</a>
 </li>
 </ul>
 <button class="search__toggle" type="button"> <span class="visually-hidden">Toggle search</span> <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 15.99 16"><path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path> </svg> </button> <button class="greedy-nav__toggle hidden" type="button"> <span class="visually-hidden">Toggle menu</span><div class="navicon"></div></button><ul class="hidden-links hidden"></ul></nav></div></div></div>
-<div class="lang-nav"><nav id="lang-sel"> <a href="/ru/miners/" class="ru footer__link">ru</a> <a href="/en/miners/" class="en footer__link">en</a></nav></div>
+<div class="lang-nav"><nav id="lang-sel"> <a href="/ru/miners/ttminer/" class="ru footer__link">ru</a> <a href="/en/miners/ttminer/" class="en footer__link">en</a></nav></div>
 <div class="lang-mar imgcen"></div>
-<div class="initial-content"><div id="main" role="main"><div class="archive">
-<h1 id="page-title" class="page__title">Mining Software for Windows (Ethereum, Altcoins) &amp; Guildes</h1>
-<article class="post archive__item-excerpt"><h2><a href="/en/miners/ttminer/">TT-Miner 6.1.0 - Download and configure for KawPow</a></h2>
-<span class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 4 minute read </span><div id="paper" class="nvidia"><div id="pattern"><div id="note-cont"> TT-Miner: how to set up and running, command line arguments.</div></div></div>
+<div class="initial-content">
+<div id="main" role="main">
+<div class="sidebar nosticky"><nav class="nav__list"><h3 class="nav__title" style="padding-left: 0;">Майнеры</h3>
+<input id="ac-toc" name="accordion-toc" type="checkbox"> <label for="ac-toc">Toggle menu</label><ul class="nav__items">
+<li> <a href="/en/miners/ttminer"><span class="nav__sub-title">TT-Miner</span></a>
+</li>
+<li> <a href="/en/miners/verthashminer"><span class="nav__sub-title">VerthashMiner</span></a>
+</li>
+</ul></nav></div>
+<article class="page" itemscope itemtype="https://schema.org/CreativeWork"><meta itemprop="headline" content="TT Miner 6.1.0 - Download and configure for KawPow">
+<meta itemprop="description" content=" TT-Miner: how to set up and running, command line arguments. Complete tutorial for setting up TT Miner version 6.1.0 and newer.">
+<meta itemprop="datePublished" content="December 07, 2021">
+<meta itemprop="dateModified" content="December 08, 2021">
+<div class="page__inner-wrap">
+<header><h1 id="page-title" class="page__title" itemprop="headline">TT-Miner 6.1.0 - Download and configure for KawPow</h1></header><section class="page__content" itemprop="text"><aside class="sidebar__right sticky"><nav class="toc"><header><h4 class="nav__title"> <i class="fas fa-file-alt"></i> Contents</h4></header><ul class="toc__menu">
+<li><a href="#download-for-windowslinux">Download for Windows/Linux</a></li>
+<li><a href="#review">Review</a></li>
+<li><a href="#supported-algorithms">Supported algorithms</a></li>
+<li><a href="#system-requirements">System requirements</a></li>
+<li> <a href="#How%20to%20set%20up%20TT-Miner">How to set up TT-Miner</a><ul>
+<li><a href="#Step%201%20-%20Download%20the%20miner">Step 1 - Download the miner</a></li>
+<li><a href="#Step%202%20-%20Configure%20TT-Miner">Step 2 - Configure TT-Miner</a></li>
+<li><a href="#Step%203%20-%20Run%20the%20miner">Step 3 - Run the miner</a></li>
+<li><a href="#How%20To%20Mine%20Zano%20-%20EASY%20Quick%20Start%20Guide%20(Using%20TT%20Miner)">How To Mine Zano - EASY Quick Start Guide (Using TT Miner)</a></li>
+</ul>
+</li>
+<li><a href="#setting-up-for-zano">Setting up for Zano</a></li>
+<li><a href="#configuring-for-ethermine">Configuring for Ethermine</a></li>
+<li><a href="#setting-up-for-nicehash">Setting up for Nicehash</a></li>
+<li><a href="#lhr">LHR</a></li>
+<li><a href="#Zcoin%20(XZC)%20Miner's%20Guide%20-%20How%20To%20Mine%20on%20Windows%20and%20HiveOS%20(MTP)">Zcoin (XZC) Miner’s Guide - How To Mine on Windows and HiveOS (MTP)</a></li>
+<li><a href="#Top%203%20Ethereum%20GPU%20Miners%20-%20T-rex,%20TeamRedMiner%20and%20PhoenixMiner">Top 3 Ethereum GPU Miners - T-rex, TeamRedMiner and PhoenixMiner</a></li>
+<li><a href="#commands-and-options">Commands and options</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#versions">Versions</a></li>
+</ul></nav></aside><div id="paper" class="nvidia"><div id="pattern"><div id="note-cont"> TT-Miner: how to set up and running, command line arguments.</div></div></div>
 <p><em>Complete tutorial for setting up TT Miner version 6.1.0 and newer.</em></p>
-<a href="/en/miners/ttminer/" class="read-more btn btn--inverse">Learn more</a></article><article class="post archive__item-excerpt"><h2><a href="/en/miners/verthashminer/">VerthashMiner 0.7.2 - Download and Set up - Guide</a></h2>
-<span class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 7 minute read </span><div id="paper" class="fio"><div id="pattern"><div id="note-cont"> VerthashMiner: how to install and running, command line arguments.</div></div></div>
-<p><em>The Complete Guide to Configuring Verthashminer Version 0.7.2 and Newer.</em></p>
-<a href="/en/miners/verthashminer/" class="read-more btn btn--inverse">Learn more</a></article>
-</div></div></div>
+<h2 id="download-for-windowslinux">Download for Windows/Linux</h2>
+<p><a href="https://tradeproject.de/download/Miner/TT-Miner.zip" class="btn btn--success btn--x-large" rel="nofollow noopener" target="_blank">Download from the official site</a> <a href="https://github.com/ttminer-git/TT-Miner/releases" class="btn btn--primary btn--x-large" rel="nofollow noopener" target="_blank">Download from GitHub</a> <a href="https://bitcointalk.org/index.php?topic=5025783.0" class="btn btn--primary btn--x-large" rel="nofollow noopener" target="_blank">Download from Bitcointalk</a></p>
+<section><h2 id="review">Review</h2>
+<p><dfn>TT-Miner</dfn> is a miner for algorithms such as <code class="language-plaintext highlighter-rouge">KawPow</code>,<code class="language-plaintext highlighter-rouge"> PROGPOW</code>, <code class="language-plaintext highlighter-rouge">ETHASH</code>,<code class="language-plaintext highlighter-rouge"> ETCHASH</code>, <code class="language-plaintext highlighter-rouge">UBQHASH</code> and<code class="language-plaintext highlighter-rouge"> MTP</code>. TT-Miner also supports Nicehash Ethash mining. It works on both Windows and Linux. Graphics cards are only supported by Nvidia.</p>
+<p><b>Developer Fee</b> - DevFee is 1 minute for 1 hour of mining - that’s about 1.7%, which is pretty high. By comparison, PhoenixMiner has a developer commission of 0.65%.</p></section><h2 id="supported-algorithms">Supported algorithms</h2>
+<ul>
+<li>PROGPOW (Zano, Sero and EPIC, Veil)</li>
+<li>KAWPOW (Ravencoin, Zelantus)</li>
+<li>ETHASH (ETH, Music, Callisto, etc.)</li>
+<li>ETCHASH (ETC)</li>
+<li>UBQHASH (UBIQ)</li>
+<li>MTP (Zcoin, Tecra)</li>
+</ul>
+<h2 id="system-requirements">System requirements</h2>
+<p>The program requires the latest version of the C ++ runtime. If you see the missing file <code class="language-plaintext highlighter-rouge">VCRUNTIME140_1.dll</code> - download the <a href="https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" rel="nofollow noopener" target="_blank">Microsoft Visual C ++ Redistributable</a> package.</p>
+<p>The miner supports <code class="language-plaintext highlighter-rouge">CUDA 9.2, 10.0, 10.1, 10.2</code> and<code class="language-plaintext highlighter-rouge"> 11.0</code>. If you want to make sure TT-Miner is using a specific CUDA version, add one of these values, if you don’t add any of them, the miner will always use the algorithm for the latest CUDA version.</p>
+<section id="how-to-start" itemscope="itemscope" itemtype="http://schema.org/HowTo"><h2 itemprop="name" id="How to set up TT-Miner">How to set up TT-Miner</h2>
+<div class="panel panel-default" id="step1" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="#step1">
+<meta itemprop="image" content="/assets/images/miners/ttminer/ttminer_download.png">
+<h3 class="panel-title" itemprop="name" id="Step 1 - Download the miner">Step 1 - Download the miner</h3>
+<div class="panel-body" itemprop="text">
+<p>Download the latest release from the official <a href="https://github.com/ttminer-git/TT-Miner/releases" rel="nofollow noopener" target="_blank">TT-Miner GitHub</a> repository.</p>
+<p></p>
+<ol>
+<li>Check out the Releases section on GitHub.<p><a href="/assets/images/miners/ttminer/ttminer_download.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_download.png" alt="ttminer_download" loading="lazy" decoding="async"> </a></p>
+</li>
+<li>In the Assets dropdown, find the latest version.</li>
+<li>Extract the downloaded archive. Better to use WinRAR to extract the archive.<p><a href="/assets/images/miners/ttminer/ttminer_extract.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_extract.png" alt="ttminer_extract" loading="lazy" decoding="async"> </a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="panel panel-default" id="step2" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="#step2">
+<meta itemprop="image" content="/assets/images/og.png">
+<h3 class="panel-title" itemprop="name" id="Step 2 - Configure TT-Miner">Step 2 - Configure TT-Miner</h3>
+<div class="panel-body" itemprop="text"><div>
+<p>After unpacking the archive, you need to create new <code>.bat</code> files or edit existing ones. These files will store your launch configuration.</p>
+<p><a href="/assets/images/miners/ttminer/ttminer_files.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_files.png" alt="ttminer_files" loading="lazy" decoding="async"> </a></p>
+<p>If you want to create a new <code>.bat</code> file, first create the file with the extension <code>.txt</code> and change it to the extension <code>.bat</code>.</p>
+<p>Open the <code>.bat</code> file with Notepad or <a href="https://notepad-plus-plus.org/" rel="nofollow noopener" target="_blank">Notepad ++ (it's more convenient)</a>. Below is an example setup for the Binance Pool. You need to enter the following commands into it:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo <span class="na">off</span>
+
+<span class="nl">:loop</span>
+
+<span class="kd">TT</span><span class="na">-Miner</span>.exe <span class="na">-A </span><span class="kd">ETHASH</span> <span class="na">-P </span><span class="kd">stratum</span><span class="na">+tcp</span>://username1.worker_name@ethash.poolbinance.com:8888
+
+<span class="nb">echo</span> <span class="kd">restart</span> <span class="kd">miner</span>...
+<span class="k">goto</span> <span class="kd">loop</span>
+</code></pre></div></div>
+<p>At the very beginning of the line is the login from the Binance pool - <code class="red">username1</code>.</p>
+<p>Instead <code class="red">username1</code> just enter your Binance pool login. This login must first be created on the Binance Pool.</p>
+</div></div>
+</div>
+<div class="panel panel-default" id="step3" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="/#step3">
+<meta itemprop="image" content="/assets/images/og.jpg">
+<h3 class="panel-title" itemprop="name" id="Step 3 - Run the miner">Step 3 - Run the miner</h3>
+<div class="panel-body" itemprop="text">
+<p>The third step is to launch the program.</p>
+<p class="notice--danger">Attention! Don't run <code>ttminer.exe</code>. You have to run the <code>.bat</code> file.</p>
+<p>It is your <code>.bat</code> file or configuration file that gives the program information about your wallet and mining pool.</p>
+<p>After starting the miner for a couple of minutes, you will see a console window with a hash rate:</p>
+<a href="/assets/images/miners/ttminer/ttminer_hashrate.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_hashrate.png" alt="ttminer_hashrate" loading="lazy" decoding="async"> </a>
+</div>
+</div>
+<div class="panel panel-default" id="videoguide" itemprop="step" itemscope="" itemtype="http://schema.org/HowToStep">
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="panel-body">
+<meta itemprop="text" content="Настройка программы ttminer для nvidia и amd (совместимости). ProgPow">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/62drLIJb90c">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/62drLIJb90c">
+<h3 class="panel-title" itemprop="name" id="How To Mine Zano - EASY Quick Start Guide (Using TT Miner)">How To Mine Zano - EASY Quick Start Guide (Using TT Miner)</h3>
+<meta itemprop="description" content="The EASIEST way to mine ZANO using TT Miner! ">
+<meta itemprop="uploadDate" content="2021-02-23">
+<meta itemprop="duration" content="PT2M39S">
+<div class="youtube-player" data-id="62drLIJb90c"></div>
+<div class="ytb-but"><a href="https://cutt.ly/pxlaiCA" rel="nofollow noopener" target="_blank">subscribe</a></div>
+</div>
+</div>
+</div></section><p> </p>
+<h2 id="setting-up-for-zano">Setting up for Zano</h2>
+<p><a href="/assets/images/miners/ttminer/ttminer_zano_batch.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_zano_batch.png" alt="ttminer_zano_batch" loading="lazy" decoding="async"> </a></p>
+<p>To mine the Zano cryptocurrency, you need to add the following commands to the bat file:</p>
+<ol>
+<li> <code class="language-plaintext highlighter-rouge">TT-Miner.exe</code> - the name of the program to run.</li>
+<li> <code class="language-plaintext highlighter-rouge">PROGPOWZ</code> - the name of the algorithm of the mined coin.</li>
+<li> <code class="language-plaintext highlighter-rouge">ZANO</code> - the name of the cryptocurrency token.</li>
+<li>`iZ2bZfXdeN626rkyy9YsnfeT1Qq1K6XamE4brWm3tzP5hDUAig4dHmKSqe4yyq5dgbSPjmpLbfidqPyDXAuFY2J9544CBmprtMw2cK7wyQws’ - the address of the mined coin.</li>
+<li> <code class="language-plaintext highlighter-rouge">YOUR_WORKER</code> - the name of the worker (you can specify any). 6.<code class="language-plaintext highlighter-rouge"> zano.luckypool.io</code> - mining pool address. 7.<code class="language-plaintext highlighter-rouge">8877</code> - mining pool port.</li>
+</ol>
+<p>Example:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo <span class="na">off</span>
+
+<span class="nl">:loop</span>
+
+<span class="kd">TT</span><span class="na">-Miner</span>.exe <span class="na">-A </span><span class="kd">PROGPOWZ</span> <span class="na">-coin </span><span class="kd">ZANO</span> <span class="na">-luck -P </span><span class="kd">stratum1</span><span class="na">+tcp</span>://iZ2bZfXdeN626rkyy9YsnfeT1Qq1K6XamE4brWm3tzP5hDUAig4dHmKSqe4yyq5dgbSPjmpLbfidqPyDXAuFY2J9544CBmprtMw2cK7wyQws.YOUR_WORKER@zano.luckypool.io:8877
+
+
+<span class="nb">echo</span> <span class="kd">restart</span> <span class="kd">miner</span>...
+<span class="k">goto</span> <span class="kd">loop</span>
+</code></pre></div></div>
+<p>For the pool address and pool port, see the pool website. The address of the digital wallet can be obtained from the cryptocurrency exchange, or the official wallet of the mined coin can be installed.</p>
+<table><tbody>
+<tr>
+<td>Algorithm</td>
+<td>PROGPOWZ</td>
+</tr>
+<tr>
+<td>Coin</td>
+<td>ZANO</td>
+</tr>
+<tr>
+<td>Pool address</td>
+<td>zano.luckypool.io</td>
+</tr>
+<tr>
+<td>PORT:</td>
+<td>8877</td>
+</tr>
+<tr>
+<td>Wallet</td>
+<td>iZ2bZfXdeN626rkyy9YsnfeT1Qq1K6XamE4brWm3tzP5hDUAig4dHmKSqe4yyq5dgbSPjmpLbfidqPyDXAuFY2J9544CBmprtMw2cK7wyQws</td>
+</tr>
+</tbody></table>
+<p> </p>
+<h2 id="configuring-for-ethermine">Configuring for Ethermine</h2>
+<p><a href="/assets/images/miners/ttminer/ttminer_ethermine_batch.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_ethermine_batch.png" alt="ttminer_ethermine_batch" loading="lazy" decoding="async"> </a></p>
+<p>How to mine coins on Ethermine:</p>
+<ol>
+<li> <code class="language-plaintext highlighter-rouge">TT-Miner.exe</code> - the name of the program to run.</li>
+<li> <code class="language-plaintext highlighter-rouge">ETHASH</code> - the name of the coin mining algorithm.</li>
+<li> <code class="language-plaintext highlighter-rouge">0x3aa3e06c47cadef96202d378ab7c407cf46a36a4</code> - the address of the digital wallet of the mined coin.</li>
+<li> <code class="language-plaintext highlighter-rouge">eu1.ethermine.org</code> - the address of the mining pool.</li>
+<li> <code class="language-plaintext highlighter-rouge">4444</code> - mining pool port.</li>
+</ol>
+<p>Example:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo <span class="na">off</span>
+
+<span class="nl">:loop</span>
+
+<span class="kd">TT</span><span class="na">-Miner</span>.exe <span class="na">-A </span><span class="kd">ETHASH</span> <span class="na">-P </span><span class="kd">stratum</span><span class="na">+tcp</span>://0x3aa3e06c47cadef96202d378ab7c407cf46a36a4.ethminer@eu1.ethermine.org:4444 
+
+<span class="nb">echo</span> <span class="kd">restart</span> <span class="kd">miner</span>...
+<span class="k">goto</span> <span class="kd">loop</span>
+</code></pre></div></div>
+<p>In this example, we did not use the command <code class="language-plaintext highlighter-rouge">YOUR_WORKER</code> because it is not required to run on ethermine.</p>
+<p> </p>
+<h2 id="setting-up-for-nicehash">Setting up for Nicehash</h2>
+<p>Example setup for Nicehash and Ravencoin cryptocurrency:</p>
+<p><a href="/assets/images/miners/ttminer/ttminer_nicehash_batch.png" class="image-popup"> <img src="/assets/images/miners/ttminer/ttminer_nicehash_batch.png" alt="ttminer_nicehash_batch" loading="lazy" decoding="async"> </a></p>
+<p>How to mine coins on Nicehash:</p>
+<ol>
+<li> <code class="language-plaintext highlighter-rouge">TT-Miner.exe</code> - the name of the program to run.</li>
+<li> <code class="language-plaintext highlighter-rouge">rvn</code> - name of the mined coin.</li>
+<li> <code class="language-plaintext highlighter-rouge">P7qADz69quhfyK5e9kvfno6Jyjq4Rcocx</code> - wallet address from Nicehash account.</li>
+<li> <code class="language-plaintext highlighter-rouge">kawpow.eu.nicehash.com</code> - the address of the pool for Ravencoin mining.</li>
+<li> <code class="language-plaintext highlighter-rouge">3385</code> - mining pool port.</li>
+</ol>
+<p>Example:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo <span class="na">off</span>
+
+<span class="nl">:loop</span>
+
+<span class="kd">TT</span><span class="na">-Miner</span>.exe <span class="na">-coin </span><span class="kd">rvn</span> <span class="na">-luck -P </span><span class="kd">P7qADz69quhfyK5e9kvfno6Jyjq4Rcocx</span>.tt@kawpow.eu.nicehash.com:3385
+
+<span class="nb">echo</span> <span class="kd">restart</span> <span class="kd">miner</span>...
+<span class="k">goto</span> <span class="kd">loop</span>
+</code></pre></div></div>
+<h2 id="lhr">LHR</h2>
+<p>This program does not yet support the ability to unlock LHR for video cards of the new segment.</p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/gv14FYeL1Ew">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/gv14FYeL1Ew">
+<h2 class="bold" itemprop="name" id="Zcoin (XZC) Miner's Guide - How To Mine on Windows and HiveOS (MTP)">Zcoin (XZC) Miner's Guide - How To Mine on Windows and HiveOS (MTP)</h2>
+<div itemprop="description"><p>Complete miner's guide to Zcoin (XZC).</p></div>
+<meta itemprop="uploadDate" content="2019-03-02">
+<meta itemprop="duration" content="PT37M51S">
+<div class="youtube-player" data-id="gv14FYeL1Ew"></div>
+</div>
+<p> </p>
+<link itemprop="url" href="/#videoguide">
+<meta itemprop="image" content="/assets/images/og.png">
+<div class="youtubevideowrap" itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject">
+<link itemprop="thumbnailUrl" content="https://www.youtube.com/embed/uAIqTa1Ot40">
+<link itemprop="contentUrl" content="https://www.youtube.com/embed/uAIqTa1Ot40">
+<h2 class="bold" itemprop="name" id="Top 3 Ethereum GPU Miners - T-rex, TeamRedMiner and PhoenixMiner">Top 3 Ethereum GPU Miners - T-rex, TeamRedMiner and PhoenixMiner</h2>
+<div itemprop="description"><p>Phoenix miner the only(best) choice for rigs mixed with NVIDIA and Radeon cards. I use hiveos, 8×1660 super &amp; 2×5700.</p></div>
+<meta itemprop="uploadDate" content="2021-02-25">
+<meta itemprop="duration" content="PT6M41S">
+<div class="youtube-player" data-id="uAIqTa1Ot40"></div>
+</div>
+<p> </p>
+<h2 id="commands-and-options">Commands and options</h2>
+<p>There are many command line options available in TT Miner.</p>
+<p>If you want to try command line options or need a specific option, you can add a <span class="red">short or long option</span> in any order.) For example, use <code class="language-plaintext highlighter-rouge">-h</code> or<code class="language-plaintext highlighter-rouge"> --help</code></p>
+<p>List of available commands:</p>
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">-a</span><span class="o">,</span> <span class="na">-A</span><span class="o">,</span> <span class="na">-algo		</span><span class="kd">ALGONAME</span>	<span class="kd">select</span> <span class="kd">the</span> <span class="kd">algorithm</span> <span class="kd">to</span> <span class="kd">use</span> <span class="k">for</span> <span class="kd">mining</span>
+<span class="kd">ETHASH</span>		<span class="kd">Ethash</span> <span class="o">(</span><span class="kd">ETH</span><span class="o">,</span> <span class="kd">ETC</span><span class="o">,</span> <span class="kd">Music</span><span class="o">,</span> <span class="kd">Callisto</span><span class="o">,</span> <span class="kd">etc</span><span class="o">)</span>
+<span class="kd">UBQHASH</span>		<span class="kd">Ubiq</span> <span class="kd">version</span> <span class="kd">of</span> <span class="kd">Ethash</span> <span class="o">(</span><span class="kd">UBIQ</span><span class="o">)</span>
+<span class="kd">PROGPOW</span>		<span class="kd">ProgPoW</span> <span class="o">(</span><span class="kd">Sero</span><span class="o">,</span> <span class="kd">Veil</span><span class="o">)</span>
+<span class="kd">PROGPOWZ</span>	<span class="kd">ProgPoWZ</span> <span class="o">(</span><span class="kd">Zano</span><span class="o">)</span>
+<span class="kd">KAWPOW</span>		<span class="kd">KawPoW</span> <span class="o">(</span><span class="kd">Raven</span><span class="o">)</span>
+<span class="kd">MTP</span>		<span class="kd">MTP</span> <span class="o">(</span><span class="kd">Zcoin</span><span class="o">)</span>
+</code></pre></div></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If the program does not start, check the syntax of the bat file.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Thank you for reading to the end. Bookmark my site in your browser. Happy mining.</p>
+<h2 id="versions">Versions</h2>
+<p><a href="https://github.com/ttminer-git/TT-Miner/releases/tag/6.1.0" rel="nofollow noopener" target="_blank">6.1.0</a></p>
+<ul><li>new version of TT release, including ETCHASH algorithm. Those who mine ETC are advised to upgrade TT.</li></ul>
+<p><a href="https://tradeproject.de/download/Miner/TT-Miner-5.0.3.zip" rel="nofollow noopener" target="_blank">5.0.3</a></p>
+<p><a href="/assets/images/mining/mining_rig_2.png" class="image-popup"> <img src="/assets/images/mining/mining_rig_2.png" alt="Ферма для майнинга" loading="lazy" decoding="async"> </a></p></section><footer class="page__meta"><p class="page__taxonomy"> <i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: <span itemprop="keywords"> <a href="/en/miners" class="page__taxonomy-item" rel="tag">miners</a> </span></p>
+<p class="page__date"><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated: <time datetime="2021-12-08T00:00:00+00:00">08.12.2021</time></p>
+<p class="page__meta hide"><i class="far fa-clock" aria-hidden="true"></i> 4 minute read</p></footer><div class="mar"><div itemscope itemtype="https://schema.org/Person">
+<div class="author__avatar"> <img width="97" height="97" src="/assets/images/about/joshrager.webp" alt="Josh Rager" itemprop="image" loading="lazy" decoding="async">
+</div>
+<div class="author__content">By <a href="/en//profiles/josh-rager"><span class="author__name" itemprop="name">Josh Rager</span></a><p class="author__bio" itemprop="description"> Blockchain developer</p>
+</div>
+<div class="author__urls-wrapper"> <button class="btn btn--inverse">Follow</button><ul class="author__urls social-icons">
+<li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place"> <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">USA</span>
+</li>
+<li><a href="https://cryptosoft.download/" rel="nofollow noopener noreferrer" target="_blank"><i class="fas fa-fw fa-link" aria-hidden="true"></i> CryptoSoft</a></li>
+<li><a href="https://github.com/jte0419" rel="nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+</ul>
+</div>
+</div></div>
+</div></article>
+</div>
+<!-- download --> <!-- related_posts --><div id="main" class="phe-vi2 mar">
+<div class="page__related post">
+<h4 class="page__related-title">You may also enjoy</h4>
+<div class="grid__wrapper">
+<div class="grid__item post"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <a href="/en/miners/verthashminer/"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async"></a>
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/en/miners/verthashminer/" rel="permalink">Verthash Miner 0.7.2 - Download, Set up - Guide [2021] </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 7 minute read</p>
+<p class="archive__item-excerpt" itemprop="description"> VerthashMiner: how to install and running, command line arguments. The Complete Guide to Configuring Verthashminer Version 0.7.2 and ...</p>
+<div><a href="/en/miners/verthashminer/" class="read-more btn btn--info">Read More →</a></div></article></div>
+<div class="grid__item post"><article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"><div class="archive__item-teaser"> <a href="/en/profiles/josh-rager/"> <img src="/assets/images/thumbs/500x300.webp" alt="" loading="lazy" decoding="async"></a>
+</div>
+<h2 class="archive__item-title" itemprop="headline"> <a href="/en/profiles/josh-rager/" rel="permalink">About the Author - Josh Rager </a>
+</h2>
+<p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> less than 1 minute read</p>
+<p class="archive__item-excerpt" itemprop="description"> Josh Rager - An expert in economics, finance, auditing, accounting and information technology. In recent years he has been very passionate ...</p>
+<div><a href="/en/profiles/josh-rager/" class="read-more btn btn--info">Read More →</a></div></article></div>
+</div>
+</div>
+<!-- post navigation footer --><section class="page__share"><h4 class="page__share-title">Share on</h4>
+<a href="https://twitter.com/intent/tweet?via=Josh_Rager&amp;text=TT+Miner+6.1.0+-+Download+and+configure+for+KawPow%20https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fttminer%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fttminer%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a> <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcryptosoft.download%2Fru%2Fminers%2Fttminer%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow noopener" target="_blank"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a></section><nav class="pagination"> <a href="/en/miners/verthashminer/" class="pagination--pager" title="Verthash Miner 0.7.2 - Download, Set up - Guide [2021] ">Previous</a> <a href="#" class="pagination--pager disabled">Next</a></nav><!-- comments --> <!-- -->
+</div>
+</div>
 <div class="search-content"><div class="search-content__inner-wrap">
 <input type="search" id="search" aria-placeholder="Enter your search term..." class="search-input" tabindex="-1" placeholder="Enter your search term..."><div id="results" class="results"></div>
 </div></div>
