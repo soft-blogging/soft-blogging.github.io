@@ -2,6 +2,15 @@
 <urlset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cryptosoft.download/ru/miners/danilaminer/</loc>
+    
+    <lastmod>2021-12-13T00:00:00+00:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>https://cryptosoft.download/ru/miners/ttminer/</loc>
     
     <lastmod>2021-12-07T00:00:00+00:00</lastmod>
@@ -35,7 +44,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/about/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -47,7 +56,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/advertising/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -59,7 +68,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/contact/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -71,7 +80,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/legal/cookie/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -83,7 +92,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/legal/disclaimer/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -95,7 +104,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -119,7 +128,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/legal/privacy/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -133,7 +142,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/legal/terms/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -145,7 +154,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/blog/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -157,7 +166,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/miners/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -169,7 +178,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/profiles/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -181,7 +190,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/tools/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -193,7 +202,7 @@
   <url>
     <loc>https://cryptosoft.download/ru/wallets/</loc>
       
-        <lastmod>2021-12-10T13:18:09+00:00</lastmod>
+        <lastmod>2021-12-13T14:29:23+00:00</lastmod>
        
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
