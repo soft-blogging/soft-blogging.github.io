@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://cryptosoft.download/sitemap_index.xml
