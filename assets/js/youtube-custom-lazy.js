@@ -16,7 +16,7 @@
         });
 
     function labnolThumb(id) {
-        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" loading="lazy">',
+        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" loading="lazy" alt="thumbnail">',
             play = '<div class="play"></div>';
         return thumb.replace("ID", id) + play;
     }
